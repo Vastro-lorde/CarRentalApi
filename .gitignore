@@ -191,8 +191,8 @@ UpgradeLog*.htm
 *.bim.layout
 *.bim_*.settings
 
-rentalcars-api/appsettings.json
-rentalcars-api/appsettings.[Dd]evelopment.json
-rentalcars-api/Logs
+RentalCarApi/appsettings.json
+RentalCarApi/appsettings.[Dd]evelopment.json
+RentalCarApi/Logs
 
 # End of https://www.gitignore.io/api/visualstudio
