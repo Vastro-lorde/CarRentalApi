@@ -38,7 +38,6 @@ namespace RentalCarInfrastructure.Context
                 ((BaseEntity)entry.Entity).ModifiedAt = DateTime.Now;
 
             }
-
             return base.SaveChangesAsync(cancellationToken);
 
         }
