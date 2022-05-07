@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RentalCarInfrastructure.Models
+namespace RentalCarInfrastructure.Seeder
 {
-    internal class Users
+    public class Seeder
     {
     }
 }
