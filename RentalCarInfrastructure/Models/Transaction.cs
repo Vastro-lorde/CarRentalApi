@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RentalCarInfrastructure.ModelValidationHelper;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -13,13 +14,13 @@ namespace RentalCarInfrastructure.Models
         public string TripId { get; set; }
         public double Amount { get; set; }
 
-        [StringLength(125, MinimumLength = 5, ErrorMessage = "Part PaymentMethod must be between 5 and 125 characters in length")]
+        [StringLength(125, MinimumLength = 5, ErrorMessage = DataAnnotationsHelper.PaymentMethodValidator)]
         public string PaymentMethod { get; set; }
 
-        [StringLength(125, MinimumLength = 5, ErrorMessage = "Part TransactionRef must be between 5 and 125 characters in length")]
+        [StringLength(125, MinimumLength = 5, ErrorMessage = DataAnnotationsHelper.TransactionRefValidator)]
         public string TransactionRef { get; set; }
 
-        [StringLength(50, MinimumLength = 4, ErrorMessage = "Part Status must be between 4 and 50 characters in length")]
+        [StringLength(50, MinimumLength = 4, ErrorMessage = DataAnnotationsHelper.StatusValidator)]
         public string Status { get; set; }
 
         public virtual Trip Trips { get; set; }

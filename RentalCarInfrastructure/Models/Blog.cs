@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RentalCarInfrastructure.ModelValidationHelper;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -12,12 +13,12 @@ namespace RentalCarInfrastructure.Models
         [Required]
         public string UserId { get; set; }
 
-        [StringLength(50, MinimumLength = 3, ErrorMessage = "Part Title must be between 3 and 50 characters in length")]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = DataAnnotationsHelper.TitleValidator)]
         public string Title { get; set; }
 
         public string Article { get; set; }
 
-        [StringLength(50, MinimumLength = 5, ErrorMessage = "Part Thumbnail must be between 5 and 50 characters in length")]
+        [StringLength(50, MinimumLength = 5, ErrorMessage = DataAnnotationsHelper.ThumbnailValidator)]
         public string Thumbnail { get; set; }
 
         public bool IsActive { get; set; }

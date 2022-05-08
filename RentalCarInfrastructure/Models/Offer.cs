@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RentalCarInfrastructure.ModelValidationHelper;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace RentalCarInfrastructure.Models
         public string Description { get; set; }
         public double Discount { get; set; }
 
-        [StringLength(50, MinimumLength = 3, ErrorMessage = "Part TypeOfOffer must be between 3 and 50 characters in length")]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = DataAnnotationsHelper.TypeOfOfferValidator)]
         public string TypeOfOffer { get; set; }
 
         public bool IsActive { get; set; }
