@@ -33,6 +33,7 @@ namespace RentalCarInfrastructure.Models
         [StringLength(50, MinimumLength = 4, ErrorMessage = "part SocialMedia must be between 4 and 50 characters in length")]
         public string SociallMedia { get; set; }
 
+        public virtual User User { get; set; }
         public virtual ICollection<Car> Cars { get; set; }
         public virtual ICollection<Location> Locations { get; set; }
     }

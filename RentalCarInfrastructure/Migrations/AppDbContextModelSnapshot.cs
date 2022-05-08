@@ -769,20 +769,24 @@ namespace RentalCarInfrastructure.Migrations
 
             modelBuilder.Entity("RentalCarInfrastructure.Models.Car", b =>
                 {
-                    b.HasOne("RentalCarInfrastructure.Models.Dealer", null)
+                    b.HasOne("RentalCarInfrastructure.Models.Dealer", "Dealers")
                         .WithMany("Cars")
                         .HasForeignKey("DealerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Dealers");
                 });
 
             modelBuilder.Entity("RentalCarInfrastructure.Models.CarDetail", b =>
                 {
-                    b.HasOne("RentalCarInfrastructure.Models.Car", null)
-                        .WithOne("CarDetail")
+                    b.HasOne("RentalCarInfrastructure.Models.Car", "Cars")
+                        .WithOne("CarDetails")
                         .HasForeignKey("RentalCarInfrastructure.Models.CarDetail", "CarId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Cars");
                 });
 
             modelBuilder.Entity("RentalCarInfrastructure.Models.Comment", b =>
@@ -802,11 +806,13 @@ namespace RentalCarInfrastructure.Migrations
 
             modelBuilder.Entity("RentalCarInfrastructure.Models.Dealer", b =>
                 {
-                    b.HasOne("RentalCarInfrastructure.Models.User", null)
+                    b.HasOne("RentalCarInfrastructure.Models.User", "User")
                         .WithOne("Dealers")
                         .HasForeignKey("RentalCarInfrastructure.Models.Dealer", "UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("RentalCarInfrastructure.Models.Image", b =>
@@ -879,7 +885,7 @@ namespace RentalCarInfrastructure.Migrations
 
             modelBuilder.Entity("RentalCarInfrastructure.Models.Car", b =>
                 {
-                    b.Navigation("CarDetail");
+                    b.Navigation("CarDetails");
 
                     b.Navigation("Comments");
 

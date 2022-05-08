@@ -25,5 +25,6 @@ namespace RentalCarInfrastructure.Models
         public bool Driver { get; set; }
         public bool CarPlay { get; set; }
         public bool IsTrack { get; set; }
+        public virtual Car Cars { get; set; }
     }
 }
