@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RentalCarInfrastructure.ModelValidationHelper;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace RentalCarInfrastructure.Models
         [Required]
         public string UserId { get; set; }
 
-        [StringLength(50, MinimumLength = 3, ErrorMessage = "Part Status must be between 3 and 50 characters in length")]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = DataAnnotationsHelper.StatusValidator)]
         public string Status { get; set; }
 
         public DateTime PickUpDate { get; set; }
