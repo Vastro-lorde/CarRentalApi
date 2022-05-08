@@ -33,7 +33,7 @@ namespace RentalCarInfrastructure.Context
             (entry.State == EntityState.Added || entry.State == EntityState.Modified));
             foreach (var entry in entries)
             {
-                ((BaseEntity)entry.Entity).Id = Guid.NewGuid();
+                ((BaseEntity)entry.Entity).Id = Guid.NewGuid().ToString();
                 ((BaseEntity)entry.Entity).CreatedAt = DateTime.Now;
                 ((BaseEntity)entry.Entity).ModifiedAt = DateTime.Now;
 

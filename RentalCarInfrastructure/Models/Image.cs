@@ -9,9 +9,12 @@ namespace RentalCarInfrastructure.Models
 {
     public class Image : BaseEntity
     {
-        public Guid CarId { get; set; }
+        [Required]
+        public string CarId { get; set; }
+
         [Required]
         public string ImageUrl { get; set; }
+
         public bool IsFeature { get; set; }
     }
 }

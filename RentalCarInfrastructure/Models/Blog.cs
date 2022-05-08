@@ -9,12 +9,17 @@ namespace RentalCarInfrastructure.Models
 {
     public class Blog : BaseEntity
     {
-        public Guid UserId { get; set; }
+        [Required]
+        public string UserId { get; set; }
+
         [StringLength(50, MinimumLength = 3, ErrorMessage = "Part Title must be between 3 and 50 characters in length")]
         public string Title { get; set; }
+
         public string Article { get; set; }
+
         [StringLength(50, MinimumLength = 5, ErrorMessage = "Part Thumbnail must be between 5 and 50 characters in length")]
         public string Thumbnail { get; set; }
+
         public bool IsActive { get; set; }
     }
 }
