@@ -12,6 +12,8 @@ using Microsoft.OpenApi.Models;
 using RentalCarApi.Extentions;
 using RentalCarInfrastructure.Context;
 using RentalCarInfrastructure.Models;
+using RentalCarInfrastructure.Repositories.Implementations;
+using RentalCarInfrastructure.Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,6 +37,8 @@ namespace RentalCarApi
             services.AddControllers();
             services.AddAutoMapper(typeof(Startup));
             services.RegisterDbContext(Configuration);
+            services.RegisterIdentityUser(Configuration);
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "RentalCarApi", Version = "v1" });

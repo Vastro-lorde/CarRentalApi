@@ -10,9 +10,11 @@ namespace RentalCarInfrastructure.Models
     public class CarDetail : BaseEntity
     {
         [Required]
-        public Guid CarId { get; set; }
+        public string CarId { get; set; }
+
         [StringLength(50, MinimumLength = 3, ErrorMessage = "Part TypeOfSeat must be between 3 and 50 characters in length")]
         public string TypeOfSeat { get; set; }
+
         public bool Sunroof { get; set; }
         public bool Bluetooth { get; set; }
         public bool NavigationSystem { get; set; }
@@ -23,5 +25,6 @@ namespace RentalCarInfrastructure.Models
         public bool Driver { get; set; }
         public bool CarPlay { get; set; }
         public bool IsTrack { get; set; }
+        public virtual Car Cars { get; set; }
     }
 }

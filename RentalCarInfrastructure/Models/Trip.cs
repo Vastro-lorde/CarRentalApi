@@ -9,12 +9,17 @@ namespace RentalCarInfrastructure.Models
 {
     public class Trip : BaseEntity
     {
-        public Guid CarId { get; set; }
-        public Guid UserId { get; set; }
+        [Required]
+        public string CarId { get; set; }
+
+        [Required]
+        public string UserId { get; set; }
+
         [StringLength(50, MinimumLength = 3, ErrorMessage = "Part Status must be between 3 and 50 characters in length")]
         public string Status { get; set; }
+
         public DateTime PickUpDate { get; set; }
         public DateTime ReturnDate { get; set; }
-        public virtual ICollection<Transaction> Transactions { get; set; }
+        public virtual  Transaction  Transactions { get; set; }
     }
 }
