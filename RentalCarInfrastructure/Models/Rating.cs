@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace RentalCarInfrastructure.Models
 {
-    internal class Users
+    public class Rating : BaseEntity
     {
+        public Guid carId { get; set; }
+        public int Ratings { get; set; }
+        public Guid UserId { get; set; }
     }
 }
