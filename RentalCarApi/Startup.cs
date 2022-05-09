@@ -11,6 +11,7 @@ using RentalCarInfrastructure.Context;
 using RentalCarInfrastructure.Models;
 using RentalCarInfrastructure.Repositories.Implementations;
 using RentalCarInfrastructure.Repositories.Interfaces;
+using static RentalCarInfrastructure.Seeder.Seeders;
 
 namespace RentalCarApi
 {
@@ -49,6 +50,11 @@ namespace RentalCarApi
             {
                 app.UseDeveloperExceptionPage();
 
+                app.UseSwagger();
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "RentalCarApi v1");
+                });
             }
 
             app.UseSwagger();
@@ -59,6 +65,7 @@ namespace RentalCarApi
             app.UseRouting();
 
             app.UseAuthorization();
+            Seeder.Seed(roleManager, userManager, dbContext).GetAwaiter().GetResult();
 
             app.UseEndpoints(endpoints =>
             {
