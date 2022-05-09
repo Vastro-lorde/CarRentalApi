@@ -28,6 +28,7 @@ namespace RentalCarApi
         {
 
             services.AddSwaggerConfiguration();
+            services.ConfigureAuthentication(Configuration);
 
             services.AddControllers();
             services.AddAutoMapper(typeof(Startup));
