@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using RentalCarCore.Utilities;
 using System;
 using System.Text;
 
@@ -33,11 +34,11 @@ namespace RentalCarApi.Extentions
                 };
             });
 
-            /*services.AddAuthorization(options =>
-                    options.AddPolicy("RequireAdminOnly", policy => policy.RequireRole(Constants.Roles.Admin)))
-                .AddAuthorization(options => options.AddPolicy("RequireCompanyManagerOnly", policy => policy.RequireRole(Constants.Roles.CompanyManager)))
-                .AddAuthorization(options => options.AddPolicy("RequireCustomerOnly", policy => policy.RequireRole(Constants.Roles.Customer)))
-                .AddAuthorization(options => options.AddPolicy("RequireCompanyManagerAndCustomer", policy => policy.RequireRole(Constants.Roles.CompanyManager, Constants.Roles.Admin)));*/
+            services.AddAuthorization(options =>
+                    options.AddPolicy("RequireAdminOnly", policy => policy.RequireRole(UserRoles.Admin)))
+                .AddAuthorization(options => options.AddPolicy("RequireDealerOnly", policy => policy.RequireRole(UserRoles.Dealer)))
+                .AddAuthorization(options => options.AddPolicy("RequireCustomerOnly", policy => policy.RequireRole(UserRoles.Customer)))
+                .AddAuthorization(options => options.AddPolicy("RequireDealerAndCustomer", policy => policy.RequireRole(UserRoles.Dealer, UserRoles.Admin)));
         }
 
     }

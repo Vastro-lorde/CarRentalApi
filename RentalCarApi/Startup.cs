@@ -65,6 +65,8 @@ namespace RentalCarApi
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseAuthorization();
             Seeder.Seed(roleManager, userManager, dbContext).GetAwaiter().GetResult();
 
             app.UseEndpoints(endpoints =>
