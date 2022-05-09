@@ -9,7 +9,7 @@
     "IdentityNumber": "81357404672",
     "SocialMedia": "Facebook",
     "CreatedAt": "2017-06-18",
-    "Location": [
+    "Locations": [
       {
         "Id": "f127bc19-2240-44c2-9f71-a241d3be4a68",
         "Address": "320 Nassau Street, Grazierville, Illinois, 5425",
@@ -27,7 +27,7 @@
         "CreatedAt": "2020-01-11"
       }
     ],
-    "Car": [
+    "Cars": [
       {
         "Id": "0faeb3c2-325b-4c08-bc4c-f00a07f4bd88",
         "Model": "Suv",
@@ -41,7 +41,7 @@
         "UnitOfPrice": "$2/mile",
         "IsVerify": true,
         "CreatedAt": "2011-02-14",
-        "CarDetail": {
+        "CarDetails": {
           "Id": "16f1d939-fde8-4223-ab1b-2ffeaa87dafe",
           "TypeOfSeat": "Leather",
           "SunRoof": true,
@@ -56,7 +56,7 @@
           "IsTrack": false,
           "CreatedAt": "2014-11-02"
         },
-        "Image": [
+        "Images": [
           {
             "Id": "61383144-9a0c-41c5-ae14-d0291c6a0c0a",
             "IsFeature": true,
@@ -70,7 +70,7 @@
             "CreatedAt": "2016-08-02"
           }
         ],
-        "Offer": [
+        "Offers": [
           {
             "Id": "befb0fd9-76f4-41d5-aa08-0004eb0d3eab",
             "Discription": "Dolor fugiat fugiat mollit sit et sit dolore qui. Tempor irure.\r\n",
@@ -92,7 +92,7 @@
             "CreatedAt": "2017-10-06"
           }
         ],
-        "Rating": [
+        "Ratings": [
           {
             "Id": "7d702b71-6343-41bf-8243-e5a9842b3da3",
             "Rating": 4,
@@ -112,7 +112,7 @@
             "CreatedAt": "2015-10-03"
           }
         ],
-        "Comment": [
+        "Comments": [
           {
             "Id": "b03725f9-e6de-45b1-87fd-e9cd7cf4bd3c",
             "Comments": "Exercitation ullamco mollit dolore Lorem consectetur ea.\r\n",
@@ -126,7 +126,7 @@
             "CreatedAt": "2021-07-08"
           }
         ],
-        "Trip": [
+        "Trips": [
           {
             "Id": "0d08d7cd-5abc-4220-b698-e5f67f29bde9",
             "UserId": "2bf60ad0-f81b-4e9e-b9f6-5b7755d4d3f0",
@@ -134,9 +134,9 @@
             "PickupDate": "2019-01-07",
             "ReturnDate": "2019-01-21",
             "CreatedAt": "2018-05-06",
-            "Transaction": {
+            "Transactions": {
               "Id": "31d0b5b6-845f-4a39-ac77-6256cb32a3d6",
-              "Amount": "$100",
+              "Amount": 100.0,
               "PaymentMethod": "Paystack",
               "TransactionRef": "29bb9c2e-5e19-4e74-a4d6-540d35439fea",
               "Status": "Successful",
@@ -150,9 +150,9 @@
             "PickupDate": "2019-04-07",
             "ReturnDate": "2019-04-21",
             "CreatedAt": "2018-12-06",
-            "Transaction": {
+            "Transactions": {
               "Id": "de83c8f1-8007-442a-bc7b-edb38d267989",
-              "Amount": "$150",
+              "Amount": 150.0,
               "PaymentMethod": "Flutterwave",
               "TransactionRef": "29bb9c2e-5e19-4e74-a4d6-540d34239fea",
               "Status": "Decline",
@@ -174,7 +174,7 @@
         "UnitOfPrice": "$4/mile",
         "IsVerify": true,
         "CreatedAt": "2014-04-09",
-        "CarDetail": {
+        "CarDetails": {
           "Id": "2856734a-bb49-4367-a50b-4130a27a64bf",
           "TypeOfSeat": "Leather",
           "SunRoof": false,
@@ -189,7 +189,7 @@
           "IsTrack": true,
           "CreatedAt": "2015-01-11"
         },
-        "Image": [
+        "Images": [
           {
             "Id": "01d5fb66-07d6-40eb-b1cc-827854b76a18",
             "IsFeature": false,
@@ -203,7 +203,7 @@
             "CreatedAt": "2019-05-23"
           }
         ],
-        "Offer": [
+        "Offers": [
           {
             "Id": "de60a8e3-a06c-4a16-96ca-6962c4da904e",
             "Discription": "Sunt amet ipsum mollit reprehenderit quis adipisicing.\r\n",
@@ -225,7 +225,7 @@
             "CreatedAt": "2021-07-06"
           }
         ],
-        "Rating": [
+        "Ratings": [
           {
             "Id": "7d775f82-7d24-474c-971a-444c7f7d0c56",
             "Rating": 3,
@@ -239,7 +239,7 @@
             "CreatedAt": "2017-11-06"
           }
         ],
-        "Comment": [
+        "Comments": [
           {
             "Id": "9d33643f-3e6e-4dc8-8b15-6834a48132e6",
             "Comments": "Consequat laborum cupidatat sit aliqua duis sint nulla veniam non dolor ut.\r\n",
@@ -253,7 +253,7 @@
             "CreatedAt": "2015-08-09"
           }
         ],
-        "Trip": [
+        "Trips": [
           {
             "Id": "7497a7a6-f135-42fc-854d-b9e10eb566fd",
             "UserId": "0b2d859b-8de2-48b1-afc1-270679270ccf",
@@ -261,9 +261,9 @@
             "PickupDate": "2016-03-21",
             "ReturnDate": "2016-03-30",
             "CreatedAt": "2016-03-16",
-            "Transaction": {
+            "Transactions": {
               "Id": "07438928-a85b-4a2f-bf0d-8749c297e4e9",
-              "Amount": "$200",
+              "Amount": 200.0,
               "PaymentMethod": "Paystack",
               "TransactionRef": "29bb9c2e-5e19-4e74-a4d6-325d35439fea",
               "Status": "Successful",
@@ -277,9 +277,9 @@
             "PickupDate": "2016-05-21",
             "ReturnDate": "2016-05-30",
             "CreatedAt": "2016-05-16",
-            "Transaction": {
+            "Transactions": {
               "Id": "2cf58ceb-5e74-4055-91ae-39c2568d4305",
-              "Amount": "$80",
+              "Amount": 80.0,
               "PaymentMethod": "Flutterwave",
               "TransactionRef": "29bb9c2e-5e19-4e74-a4d6-810d35439fea",
               "Status": "Successful",
@@ -301,7 +301,7 @@
     "IdentityNumber": "44199672103",
     "SocialMedia": "Facebook",
     "CreatedAt": "2019-06-18",
-    "Location": [
+    "Locations": [
       {
         "Id": "8a69e8a1-5915-42f9-91bb-7863bdc88ca4",
         "Address": "281 Adler Place, Innsbrook, Iowa, 6160",
@@ -319,7 +319,7 @@
         "CreatedAt": "2016-10-01"
       }
     ],
-    "Car": [
+    "Cars": [
       {
         "Id": "bd5096f6-867b-4a7f-9c87-a6c63b4b9690",
         "Model": "Mercedes",
@@ -333,7 +333,7 @@
         "UnitOfPrice": "$5/mile",
         "IsVerify": true,
         "CreatedAt": "2011-02-14",
-        "CarDetail": {
+        "CarDetails": {
           "Id": "f96445e1-bd37-4c1f-9041-32b261d29802",
           "TypeOfSeat": "Wool",
           "SunRoof": true,
@@ -348,7 +348,7 @@
           "IsTrack": false,
           "CreatedAt": "2015-10-05"
         },
-        "Image": [
+        "Images": [
           {
             "Id": "93c71f34-5e54-418e-a113-cd4c0eed7823",
             "IsFeature": false,
@@ -362,7 +362,7 @@
             "CreatedAt": "2012-03-22"
           }
         ],
-        "Offer": [
+        "Offers": [
           {
             "Id": "7c68e8a4-76b7-44d9-9fb0-546ccc3be19b",
             "Discription": "Dolor fugiat fugiat mollit sit et sit dolore qui. Tempor irure.\r\n",
@@ -384,7 +384,7 @@
             "CreatedAt": "2017-10-06"
           }
         ],
-        "Rating": [
+        "Ratings": [
           {
             "Id": "e52d548d-daca-49db-8374-ffd20eaa19a9",
             "Rating": 2,
@@ -398,7 +398,7 @@
             "CreatedAt": "2015-10-03"
           }
         ],
-        "Comment": [
+        "Comments": [
           {
             "Id": "fe592083-265f-4390-bbed-97a022c255ff",
             "Comments": "Fugiat excepteur nisi eu dolor qui qui proident dolor nisi.\r\n",
@@ -412,7 +412,7 @@
             "CreatedAt": "2021-02-14"
           }
         ],
-        "Trip": [
+        "Trips": [
           {
             "Id": "d2a20262-8dcb-4890-82e8-510ebd6334ef",
             "UserId": "eacdea38-c41b-434b-8f4d-b0974f100ded",
@@ -420,9 +420,9 @@
             "PickupDate": "2019-01-07",
             "ReturnDate": "2019-01-21",
             "CreatedAt": "2018-05-06",
-            "Transaction": {
+            "Transactions": {
               "Id": "9047c6da-25d2-4540-8c03-94cdbf0f596c",
-              "Amount": "$125",
+              "Amount": 125.0,
               "PaymentMethod": "Paystack",
               "TransactionRef": "29bb9c2e-5e19-4e74-a4d6-540d35299fea",
               "Status": "Successful",
@@ -436,9 +436,9 @@
             "PickupDate": "2017-01-07",
             "ReturnDate": "2017-01-21",
             "CreatedAt": "2017-05-06",
-            "Transaction": {
+            "Transactions": {
               "Id": "8eddd037-1081-4fb2-8a43-1a50eb404c6f",
-              "Amount": "$300",
+              "Amount": 300.0,
               "PaymentMethod": "Paystack",
               "TransactionRef": "29bb9c2e-5e19-4e74-a4d6-540d67339fea",
               "Status": "Decline",
@@ -460,7 +460,7 @@
         "UnitOfPrice": "$5/mile",
         "IsVerify": true,
         "CreatedAt": "2016-08-14",
-        "CarDetail": {
+        "CarDetails": {
           "Id": "0ab7112f-06f8-4976-8fe9-738407908c2c",
           "TypeOfSeat": "Wool",
           "SunRoof": true,
@@ -475,7 +475,7 @@
           "IsTrack": false,
           "CreatedAt": "2015-11-05"
         },
-        "Image": [
+        "Images": [
           {
             "Id": "9d1e127d-cabe-4fb1-9539-69c7696d358a",
             "IsFeature": false,
@@ -489,7 +489,7 @@
             "CreatedAt": "2012-03-22"
           }
         ],
-        "Offer": [
+        "Offers": [
           {
             "Id": "f88dba4b-782e-4e19-b103-d38dcc9b40e4",
             "Discription": "Dolor fugiat fugiat mollit sit et sit dolore qui. Tempor irure.\r\n",
@@ -511,7 +511,7 @@
             "CreatedAt": "2017-10-06"
           }
         ],
-        "Rating": [
+        "Ratings": [
           {
             "Id": "ba4ea263-2946-4f3d-8a7c-aa4a6142e253",
             "Rating": 2,
@@ -525,7 +525,7 @@
             "CreatedAt": "2015-10-03"
           }
         ],
-        "Comment": [
+        "Comments": [
           {
             "Id": "9333a1ae-ac22-4e66-a466-d4d86f1c8f61",
             "Comments": "Fugiat excepteur nisi eu dolor qui qui proident dolor nisi.\r\n",
@@ -539,7 +539,7 @@
             "CreatedAt": "2021-02-14"
           }
         ],
-        "Trip": [
+        "Trips": [
           {
             "Id": "589e7d64-6b31-432b-b6ae-5fd2aecda9c2",
             "UserId": "0b2d859b-8de2-48b1-afc1-270679270ccf",
@@ -547,9 +547,9 @@
             "PickupDate": "2019-02-07",
             "ReturnDate": "2019-02-21",
             "CreatedAt": "2018-05-06",
-            "Transaction": {
+            "Transactions": {
               "Id": "29b0703e-dfbf-4583-ae7a-fb6f3c0c00b2",
-              "Amount": "$145",
+              "Amount": 145.0,
               "PaymentMethod": "Paystack",
               "TransactionRef": "29bb9c2e-5e19-4e74-a4d6-540d35299fea",
               "Status": "Successful",
@@ -563,9 +563,9 @@
             "PickupDate": "2017-04-07",
             "ReturnDate": "2017-04-21",
             "CreatedAt": "2017-05-06",
-            "Transaction": {
+            "Transactions": {
               "Id": "bdb2ac65-7220-4d16-ab1f-5bb340500203",
-              "Amount": "$210",
+              "Amount": 210.0,
               "PaymentMethod": "Paystack",
               "TransactionRef": "29bb9c2e-5e19-4e74-a4d6-540d67339fea",
               "Status": "Decline",
@@ -587,7 +587,7 @@
     "IdentityNumber": "74357004312",
     "SocialMedia": "Facebook",
     "CreatedAt": "2021-09-14",
-    "Location": [
+    "Locations": [
       {
         "Id": "ed399f1f-d66d-484e-8305-a59214a9d29c",
         "Address": "320 Nassau Street, Grazierville, Illinois, 5425",
@@ -605,7 +605,7 @@
         "CreatedAt": "2020-01-11"
       }
     ],
-    "Car": [
+    "Cars": [
       {
         "Id": "3a580c0f-0297-4ac0-835a-cd2251e19e79",
         "Model": "Peugeot 5008",
@@ -619,7 +619,7 @@
         "UnitOfPrice": "$5/mile",
         "IsVerify": false,
         "CreatedAt": "2018-06-17",
-        "CarDetail": {
+        "CarDetails": {
           "Id": "10cc1c5e-ae05-4167-a0c0-11767a408539",
           "TypeOfSeat": "Cloth",
           "SunRoof": false,
@@ -634,7 +634,7 @@
           "IsTrack": true,
           "CreatedAt": "2021-02-06"
         },
-        "Image": [
+        "Images": [
           {
             "Id": "41e1619d-da33-4644-90b9-8a9a74a593e2",
             "IsFeature": false,
@@ -648,7 +648,7 @@
             "CreatedAt": "2015-09-05"
           }
         ],
-        "Offer": [
+        "Offers": [
           {
             "Id": "b6d2350e-0a2e-4b74-a4fc-689d1d1cb6c6",
             "Discription": "Minim labore culpa ut. Veniam laboris eu tempor fugiat qui.\r\n",
@@ -670,7 +670,7 @@
             "CreatedAt": "2019-08-03"
           }
         ],
-        "Rating": [
+        "Ratings": [
           {
             "Id": "5098738a-6700-4216-a8cf-83fbefdf94f0",
             "Rating": 3,
@@ -684,7 +684,7 @@
             "CreatedAt": "2020-04-06"
           }
         ],
-        "Comment": [
+        "Comments": [
           {
             "Id": "ed8a5ece-9373-4743-b848-b6cf95dd106d",
             "Comments": "Exercitation ullamco mollit dolore Lorem consectetur ea.\r\n",
@@ -698,7 +698,7 @@
             "CreatedAt": "2021-08-28"
           }
         ],
-        "Trip": [
+        "Trips": [
           {
             "Id": "17464fb7-2db5-491c-8ccd-785a3dd73b08",
             "UserId": "2f05f94f-1d59-4078-ae13-0d39f068bb5d",
@@ -706,9 +706,9 @@
             "PickupDate": "2022-01-06",
             "ReturnDate": "2022-01-10",
             "CreatedAt": "2022-01-02",
-            "Transaction": {
+            "Transactions": {
               "Id": "d8b50f1f-23fc-4690-b503-ec4dd76a99cb",
-              "Amount": "$90",
+              "Amount": 90.0,
               "PaymentMethod": "Flutterwave",
               "TransactionRef": "29bb9c2e-5e19-4e74-a4d6-540d41039fea",
               "Status": "Successful",
@@ -722,9 +722,9 @@
             "PickupDate": "2021-01-06",
             "ReturnDate": "2021-01-10",
             "CreatedAt": "2021-01-02",
-            "Transaction": {
+            "Transactions": {
               "Id": "7d49fc81-8711-4ccc-b45c-bc2a8e22ea9d",
-              "Amount": "$100",
+              "Amount": 100.0,
               "PaymentMethod": "Paystack",
               "TransactionRef": "29bb9c2e-5e19-4e74-a4d6-540d34289fea",
               "Status": "Successful",
@@ -746,7 +746,7 @@
         "UnitOfPrice": "$4/mile",
         "IsVerify": true,
         "CreatedAt": "2020-08-16",
-        "CarDetail": {
+        "CarDetails": {
           "Id": "3fc076c5-dd21-4d4b-b07a-c00eec64643f",
           "TypeOfSeat": "Leather",
           "SunRoof": false,
@@ -761,7 +761,7 @@
           "IsTrack": true,
           "CreatedAt": "2015-01-11"
         },
-        "Image": [
+        "Images": [
           {
             "Id": "eb571265-758b-4a87-9dd8-4740909abb87",
             "IsFeature": false,
@@ -775,7 +775,7 @@
             "CreatedAt": "2011-03-22"
           }
         ],
-        "Offer": [
+        "Offers": [
           {
             "Id": "45c33d6b-d33e-4c18-badb-e6229ebce01c",
             "Discription": "Dolor fugiat fugiat mollit sit et sit dolore qui. Tempor irure.\r\n",
@@ -797,7 +797,7 @@
             "CreatedAt": "2017-10-06"
           }
         ],
-        "Rating": [
+        "Ratings": [
           {
             "Id": "449f6f1f-4d8f-4fd6-b8e4-763cab6a10fa",
             "Rating": 4,
@@ -811,7 +811,7 @@
             "CreatedAt": "2015-10-03"
           }
         ],
-        "Comment": [
+        "Comments": [
           {
             "Id": "595b2770-19e7-4553-b212-6de17fb3f668",
             "Comments": "Nostrud reprehenderit ipsum veniam laboris amet est incididunt commodo qui.\r\n",
@@ -825,7 +825,7 @@
             "CreatedAt": "2017-07-21"
           }
         ],
-        "Trip": [
+        "Trips": [
           {
             "Id": "8dd90e18-58c0-4fb0-9f2d-47b980fe47ac",
             "UserId": "7dfa1ecc-2230-444e-9c7e-955119e42ff5",
@@ -833,9 +833,9 @@
             "PickupDate": "2016-08-21",
             "ReturnDate": "2016-08-30",
             "CreatedAt": "2016-08-16",
-            "Transaction": {
+            "Transactions": {
               "Id": "7f3445a0-70ff-4a1e-991f-132fa0f0ed1a",
-              "Amount": "$120",
+              "Amount": 120.0,
               "PaymentMethod": "Paystack",
               "TransactionRef": "29ce9c2e-5e19-4e74-a4d6-540d35439fea",
               "Status": "Successful",
@@ -849,9 +849,9 @@
             "PickupDate": "2012-07-21",
             "ReturnDate": "2012-07-30",
             "CreatedAt": "2012-07-16",
-            "Transaction": {
+            "Transactions": {
               "Id": "6194b4f5-18f9-42be-9c2a-d47dd0e09b2b",
-              "Amount": "$280",
+              "Amount": 280.0,
               "PaymentMethod": "Paystack",
               "TransactionRef": "29bb9c2e-5e19-4e43-a4d6-540d35439fea",
               "Status": "Successful",
@@ -873,7 +873,7 @@
     "IdentityNumber": "11357004672",
     "SocialMedia": "Facebook",
     "CreatedAt": "2016-04-24",
-    "Location": [
+    "Locations": [
       {
         "Id": "33ca0270-3c7d-4f7f-a854-b8e61b050249",
         "Address": "153 Brown Street, Williston, Louisiana, 3729",
@@ -891,7 +891,7 @@
         "CreatedAt": "2017-07-16"
       }
     ],
-    "Car": [
+    "Cars": [
       {
         "Id": "d6f425c3-1ea0-4bb6-99cc-d3f44dad0a92",
         "Model": "Peugeot 308",
@@ -905,7 +905,7 @@
         "UnitOfPrice": "$4/mile",
         "IsVerify": true,
         "CreatedAt": "2020-08-16",
-        "CarDetail": {
+        "CarDetails": {
           "Id": "c3470a3c-6ac7-4867-a9a4-0a2b8247a618",
           "TypeOfSeat": "Leather",
           "SunRoof": false,
@@ -920,7 +920,7 @@
           "IsTrack": true,
           "CreatedAt": "2015-01-11"
         },
-        "Image": [
+        "Images": [
           {
             "Id": "1187f203-6456-4196-90a6-f2c5afff03c7",
             "IsFeature": false,
@@ -934,7 +934,7 @@
             "CreatedAt": "2016-03-22"
           }
         ],
-        "Offer": [
+        "Offers": [
           {
             "Id": "2da6cbe4-d599-44f6-9e75-5190f7a15cb9",
             "Discription": "Dolor fugiat fugiat mollit sit et sit dolore qui. Tempor irure.\r\n",
@@ -956,7 +956,7 @@
             "CreatedAt": "2017-10-06"
           }
         ],
-        "Rating": [
+        "Ratings": [
           {
             "Id": "357193a6-830c-4808-ac42-f4634031dd86",
             "Rating": 4,
@@ -970,7 +970,7 @@
             "CreatedAt": "2015-10-03"
           }
         ],
-        "Comment": [
+        "Comments": [
           {
             "Id": "27b2c3b9-8455-409e-9a9a-1e8b39e3c059",
             "Comments": "Nostrud reprehenderit ipsum veniam laboris amet est incididunt commodo qui.\r\n",
@@ -984,7 +984,7 @@
             "CreatedAt": "2017-07-21"
           }
         ],
-        "Trip": [
+        "Trips": [
           {
             "Id": "da39ba70-9a12-4475-a046-951203b2c867",
             "UserId": "27e9e275-adde-4b6d-881c-6397b46a9020",
@@ -992,9 +992,9 @@
             "PickupDate": "2016-03-21",
             "ReturnDate": "2016-03-30",
             "CreatedAt": "2016-03-16",
-            "Transaction": {
+            "Transactions": {
               "Id": "d8627150-2852-402b-9036-5b53c8413ff2",
-              "Amount": "$120",
+              "Amount": 120.0,
               "PaymentMethod": "Paystack",
               "TransactionRef": "29ce9c2e-5e19-4e74-a4d6-540d35439fea",
               "Status": "Successful",
@@ -1008,9 +1008,9 @@
             "PickupDate": "2016-07-21",
             "ReturnDate": "2016-07-30",
             "CreatedAt": "2016-07-16",
-            "Transaction": {
+            "Transactions": {
               "Id": "5204e358-d6a1-4b4b-bb88-a7b6ed06496e",
-              "Amount": "$250",
+              "Amount": 250.0,
               "PaymentMethod": "Flutterwave",
               "TransactionRef": "29bb9c2e-5e19-4e43-a4d6-540d35439fea",
               "Status": "Successful",
@@ -1032,7 +1032,7 @@
         "UnitOfPrice": "$4/mile",
         "IsVerify": true,
         "CreatedAt": "2020-08-16",
-        "CarDetail": {
+        "CarDetails": {
           "Id": "83ceba5c-7395-4cc1-b8ef-827d2d0747f5",
           "TypeOfSeat": "Leather",
           "SunRoof": false,
@@ -1047,7 +1047,7 @@
           "IsTrack": true,
           "CreatedAt": "2015-01-11"
         },
-        "Image": [
+        "Images": [
           {
             "Id": "73c5fdf9-7e7f-4c73-989c-4025253f0cb2",
             "IsFeature": false,
@@ -1061,7 +1061,7 @@
             "CreatedAt": "2016-03-22"
           }
         ],
-        "Offer": [
+        "Offers": [
           {
             "Id": "3ec6247e-feca-4cfc-8744-e0f1f8851b56",
             "Discription": "Dolor fugiat fugiat mollit sit et sit dolore qui. Tempor irure.\r\n",
@@ -1083,7 +1083,7 @@
             "CreatedAt": "2017-10-06"
           }
         ],
-        "Rating": [
+        "Ratings": [
           {
             "Id": "5cd51ee4-2ed6-4bef-98d3-8da9cdf1c3af",
             "Rating": 4,
@@ -1097,7 +1097,7 @@
             "CreatedAt": "2015-10-03"
           }
         ],
-        "Comment": [
+        "Comments": [
           {
             "Id": "008d947c-285c-4660-bc9e-0d7283986f5c",
             "Comments": "Nostrud reprehenderit ipsum veniam laboris amet est incididunt commodo qui.\r\n",
@@ -1111,7 +1111,7 @@
             "CreatedAt": "2017-07-21"
           }
         ],
-        "Trip": [
+        "Trips": [
           {
             "Id": "aa8b52a3-4976-45fc-83bd-743a9a257891",
             "UserId": "f40276cc-ce31-474a-8a7e-a697ca82574b",
@@ -1119,9 +1119,9 @@
             "PickupDate": "2016-03-21",
             "ReturnDate": "2016-03-30",
             "CreatedAt": "2016-03-16",
-            "Transaction": {
+            "Transactions": {
               "Id": "04f92ef6-c373-4911-a33a-462d42f4a330",
-              "Amount": "$120",
+              "Amount": 120.0,
               "PaymentMethod": "Paystack",
               "TransactionRef": "29ce9c2e-5e19-4e74-a4d6-540d35439fea",
               "Status": "Successful",
@@ -1135,9 +1135,9 @@
             "PickupDate": "2016-07-21",
             "ReturnDate": "2016-07-30",
             "CreatedAt": "2016-07-16",
-            "Transaction": {
+            "Transactions": {
               "Id": "ec33b39d-079b-4e08-b5f8-59868c4cc55c",
-              "Amount": "$250",
+              "Amount": 250.0,
               "PaymentMethod": "Flutterwave",
               "TransactionRef": "29bb9c2e-5e19-4e43-a4d6-540d35439fea",
               "Status": "Successful",
@@ -1158,7 +1158,7 @@
     "IdentityNumber": "70745106492",
     "SocialMedia": "Facebook",
     "CreatedAt": "2020-10-11",
-    "Location": [
+    "Locations": [
       {
         "Id": "c57b5c5f-f184-4346-b8aa-3e433170c861",
         "Address": "281 Adler Place, Innsbrook, Iowa, 6160",
@@ -1176,7 +1176,7 @@
         "CreatedAt": "2016-10-01"
       }
     ],
-    "Car": [
+    "Cars": [
       {
         "Id": "af9e8e7f-9498-4878-aef6-59d1e40ac8e1",
         "Model": "Hyundai Creta",
@@ -1190,7 +1190,7 @@
         "UnitOfPrice": "$7/mile",
         "IsVerify": true,
         "CreatedAt": "2016-03-14",
-        "CarDetail": {
+        "CarDetails": {
           "Id": "081905b1-70af-44cc-b823-c9182aa70e17",
           "TypeOfSeat": "Wool",
           "SunRoof": true,
@@ -1205,7 +1205,7 @@
           "IsTrack": false,
           "CreatedAt": "2022-04-04"
         },
-        "Image": [
+        "Images": [
           {
             "Id": "47e6c9d7-09bf-449a-a78b-27258d50c851",
             "IsFeature": false,
@@ -1219,7 +1219,7 @@
             "CreatedAt": "2018-05-23"
           }
         ],
-        "Offer": [
+        "Offers": [
           {
             "Id": "7a717597-0e26-4b41-9fc1-a7d700a5e3be",
             "Discription": "Sunt amet ipsum mollit reprehenderit quis adipisicing.\r\n",
@@ -1241,7 +1241,7 @@
             "CreatedAt": "2020-07-06"
           }
         ],
-        "Rating": [
+        "Ratings": [
           {
             "Id": "12dcde7f-41ff-40c2-ac93-8dbe5034dca0",
             "Rating": 3,
@@ -1255,7 +1255,7 @@
             "CreatedAt": "2017-11-06"
           }
         ],
-        "Comment": [
+        "Comments": [
           {
             "Id": "3b05304c-5e8d-4f6c-a26a-066532f91820",
             "Comments": "Consequat laborum cupidatat sit aliqua duis sint nulla veniam non dolor ut.\r\n",
@@ -1269,7 +1269,7 @@
             "CreatedAt": "2015-08-09"
           }
         ],
-        "Trip": [
+        "Trips": [
           {
             "Id": "0ada09c4-b240-4c91-89a5-68e3ed09924b",
             "UserId": "d7c29369-929b-4426-b54d-04b5f1560b50",
@@ -1277,9 +1277,9 @@
             "PickupDate": "2016-03-21",
             "ReturnDate": "2016-03-30",
             "CreatedAt": "2016-03-16",
-            "Transaction": {
+            "Transactions": {
               "Id": "c6898807-ce28-4766-9603-c62673e4ef8b",
-              "Amount": "$100",
+              "Amount": 100.0,
               "PaymentMethod": "Paystack",
               "TransactionRef": "29bb9c2e-5e19-4e74-a4d6-540d35439erf",
               "Status": "Successful",
@@ -1293,9 +1293,9 @@
             "PickupDate": "2016-01-21",
             "ReturnDate": "2016-01-30",
             "CreatedAt": "2016-01-16",
-            "Transaction": {
+            "Transactions": {
               "Id": "94ed614a-8704-416f-beaa-3cd856c7cdcc",
-              "Amount": "$150",
+              "Amount": 150.0,
               "PaymentMethod": "Paystack",
               "TransactionRef": "29bb9c2e-5e19-4e74-a5g9-540d35439fea",
               "Status": "Successful",
@@ -1317,7 +1317,7 @@
         "UnitOfPrice": "$4/mile",
         "IsVerify": true,
         "CreatedAt": "2020-08-16",
-        "CarDetail": {
+        "CarDetails": {
           "Id": "0441b2e5-eba3-4a83-8cac-bce3d1bf2fbe",
           "TypeOfSeat": "Leather",
           "SunRoof": false,
@@ -1332,7 +1332,7 @@
           "IsTrack": true,
           "CreatedAt": "2017-01-11"
         },
-        "Image": [
+        "Images": [
           {
             "Id": "4702bf1a-1296-411e-9c84-84a8d49d34f7",
             "IsFeature": false,
@@ -1346,7 +1346,7 @@
             "CreatedAt": "2016-03-22"
           }
         ],
-        "Offer": [
+        "Offers": [
           {
             "Id": "9fd7e19b-f378-4eeb-9b57-9416b992c894",
             "Discription": "Dolor fugiat fugiat mollit sit et sit dolore qui. Tempor irure.\r\n",
@@ -1368,7 +1368,7 @@
             "CreatedAt": "2017-10-06"
           }
         ],
-        "Rating": [
+        "Ratings": [
           {
             "Id": "3cc434c8-788c-482f-844f-8834aa97259b",
             "Rating": 4,
@@ -1382,7 +1382,7 @@
             "CreatedAt": "2015-10-03"
           }
         ],
-        "Comment": [
+        "Comments": [
           {
             "Id": "9f59288a-c1e5-4b2f-83ea-ebb9a177530e",
             "Comments": "Nostrud reprehenderit ipsum veniam laboris amet est incididunt commodo qui.\r\n",
@@ -1396,7 +1396,7 @@
             "CreatedAt": "2017-07-21"
           }
         ],
-        "Trip": [
+        "Trips": [
           {
             "Id": "134af242-c1bd-4a33-b3d1-01694ace55e8",
             "UserId": "2f05f94f-1d59-4078-ae13-0d39f068bb5d",
@@ -1404,9 +1404,9 @@
             "PickupDate": "2016-07-21",
             "ReturnDate": "2016-07-30",
             "CreatedAt": "2016-07-16",
-            "Transaction": {
+            "Transactions": {
               "Id": "dcc64ae7-54f2-4509-ae3c-da53ab4f8f8a",
-              "Amount": "$320",
+              "Amount": 320.0,
               "PaymentMethod": "Paystack",
               "TransactionRef": "29ce9c2e-5e19-4e74-a4d6-540d35439fea",
               "Status": "Successful",
@@ -1420,9 +1420,9 @@
             "PickupDate": "2018-07-21",
             "ReturnDate": "2018-07-30",
             "CreatedAt": "2018-07-16",
-            "Transaction": {
+            "Transactions": {
               "Id": "a97631bd-eb62-4814-9578-fb2730cc356b",
-              "Amount": "$260",
+              "Amount": 260.0,
               "PaymentMethod": "Flutterwave",
               "TransactionRef": "29bb9c2e-5e19-4e43-a4d6-540d35439fea",
               "Status": "Decline",

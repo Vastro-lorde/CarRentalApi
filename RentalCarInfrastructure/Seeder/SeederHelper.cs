@@ -18,7 +18,7 @@ namespace RentalCarInfrastructure.Seeder
         }
         private static string FilePath(string folderName, string fileName)
         {
-            folderName += @"\Json\";
+            folderName += @"/Json/";
             if (Directory.Exists(folderName))
             {
                 return Path.Combine(folderName, fileName);
