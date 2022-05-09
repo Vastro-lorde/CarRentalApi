@@ -11,6 +11,7 @@ using RentalCarInfrastructure.Context;
 using RentalCarInfrastructure.Models;
 using RentalCarInfrastructure.Repositories.Implementations;
 using RentalCarInfrastructure.Repositories.Interfaces;
+using static RentalCarInfrastructure.Seeder.Seeders;
 
 namespace RentalCarApi
 {
@@ -26,6 +27,10 @@ namespace RentalCarApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddSwaggerConfiguration();
+            services.ConfigureAuthentication(Configuration);
+
             services.AddControllers();
             services.AddAutoMapper(typeof(Startup));
             services.RegisterDbContext(Configuration);
@@ -44,15 +49,25 @@ namespace RentalCarApi
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "RentalCarApi v1"));
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "RentalCarApi v1");
+                });
             }
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "RentalCarApi v1"));
 
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseAuthorization();
+            Seeder.Seed(roleManager, userManager, dbContext).GetAwaiter().GetResult();
 
             app.UseEndpoints(endpoints =>
             {

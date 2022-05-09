@@ -12,10 +12,11 @@ namespace RentalCarApi.Extentions
         {
             services.AddIdentity<User, IdentityRole>(x =>
             {
-                x.Password.RequireUppercase = true;
                 x.SignIn.RequireConfirmedEmail = true;
+                x.Password.RequireUppercase = true;
+                x.Password.RequireDigit = true;
+                x.Password.RequiredUniqueChars = 1;
                 x.Password.RequiredLength = 5;
-                x.Password.RequireLowercase = true;
             }).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
         }
     }
