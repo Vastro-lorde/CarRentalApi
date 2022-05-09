@@ -12,7 +12,7 @@
     "Gender": "female",
     "Avatar": "https://generated.photos/face-generator/62",
     "IsActive": false,
-    "Blog": [
+    "Blogs": [
       {
         "Id": "95592e44-18e7-4fa5-aa61-893de7b2c005",
         "Title": "Mrs",
