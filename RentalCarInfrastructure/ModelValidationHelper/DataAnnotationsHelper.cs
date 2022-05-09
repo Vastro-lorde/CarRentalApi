@@ -39,7 +39,5 @@ namespace RentalCarInfrastructure.ModelValidationHelper
         public const string PaymentMethodValidator = "PaymentMethod must be between 5 and 125 characters in length";
         public const string TransactionRefValidator = "TransactionRef must be between 5 and 125 characters in length";
         public const string TypeOfSeatValidator = "TypeOfSeat must be between 3 and 50 characters in length";
-        public const string TypeOfOfferValidator = "TypeOfOffer must be between 3 and 50 characters in length";
-        public const string TypeOfOfferValidator = "TypeOfOffer must be between 3 and 50 characters in length";
     }
 }
