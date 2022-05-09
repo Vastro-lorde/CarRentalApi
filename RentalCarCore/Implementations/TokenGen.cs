@@ -4,6 +4,7 @@ using RentalCarCore.Interfaces;
 using RentalCarInfrastructure.Models;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
@@ -33,8 +34,8 @@ namespace RentalCarCore.Implementations
             var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWTSettings:SecretKey"]));
             var userToken = new JwtSecurityToken(audience: _configuration
                 ["JWTSettings: Audience"],
-                issuuer: _configuration["JWTSettings:Issuer"],
-                clains: userClaims,
+                issuer: _configuration["JWTSettings:Issuer"],
+                claims: userClaims,
                 expires: DateTime.UtcNow.AddMinutes(30),
                 signingCredentials: new SigningCredentials(signingKey, SecurityAlgorithms.HmacSha256)
 
