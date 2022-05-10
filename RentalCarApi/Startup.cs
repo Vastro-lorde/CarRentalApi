@@ -17,19 +17,21 @@ namespace RentalCarApi
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
             Configuration = configuration;
+            Environment = env;  
         }
 
         public IConfiguration Configuration { get; }
+        public IWebHostEnvironment Environment { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
             services.AddAutoMapper(typeof(Startup));
-            services.RegisterDbContext(Configuration);
+            services.AddDbContextAndConfigurations(Environment, Configuration);
             services.RegisterIdentityUser(Configuration);
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddSwaggerGen(c =>
@@ -45,14 +47,15 @@ namespace RentalCarApi
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c =>
-                {
-                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "RentalCarApi v1");
-                });
+                
             }
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "RentalCarApi v1");
+            });
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
 

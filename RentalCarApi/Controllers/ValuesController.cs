@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using RentalCarApi.Middlewares.Filters;
 
 namespace RentalCarApi.Controllers
 {
@@ -7,8 +8,9 @@ namespace RentalCarApi.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
-        [HttpGet]
-        public IActionResult GetAll()
+        [HttpPost]
+        [ValidateModel]
+        public IActionResult GetAll(GetAllUser getAll)
         {
             return Ok();
         }
