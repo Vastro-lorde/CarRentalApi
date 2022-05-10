@@ -30,19 +30,14 @@ namespace RentalCarApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
-            services.AddScoped<IMailService, MailService>();
-            services.AddScoped<IImageService, ImageService>();
             services.Configure<ImageUploadSettings>(Configuration.GetSection("ImageUploadSettings"));
-
-            services.AddSwaggerConfiguration();
-            services.AddCorsConfiguration();
             services.ConfigureAuthentication(Configuration);
 
-            services.AddControllers();
             services.AddAutoMapper(typeof(Startup));
             services.RegisterDbContext(Configuration);
             services.RegisterIdentityUser(Configuration);
-            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.RegisterAllService();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,7 +50,6 @@ namespace RentalCarApi
             }
 
             app.UseSwagger();
-            //app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "RentalCarApi v1"));
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Car Rental Api v1");
