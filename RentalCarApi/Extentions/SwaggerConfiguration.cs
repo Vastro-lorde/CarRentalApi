@@ -9,7 +9,7 @@ namespace RentalCarApi.Extentions
         {
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "AquaWater", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "RentalCarApi", Version = "v1" });
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
                 {
                     Name = "Authorization",
