@@ -32,7 +32,7 @@ namespace RentalCarInfrastructure.Models
         public string IdentityNumber { get; set; }
 
         [StringLength(50, MinimumLength = 4, ErrorMessage = DataAnnotationsHelper.SocialMediaValidator)]
-        public string SociallMedia { get; set; }
+        public string SocialMedia { get; set; }
 
         public virtual User User { get; set; }
         public virtual ICollection<Car> Cars { get; set; }

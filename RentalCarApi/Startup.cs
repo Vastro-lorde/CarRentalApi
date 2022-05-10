@@ -29,6 +29,10 @@ namespace RentalCarApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddSwaggerConfiguration();
+            services.ConfigureAuthentication(Configuration);
+
             services.AddControllers();
             services.AddAutoMapper(typeof(Startup));
             services.AddDbContextAndConfigurations(Environment, Configuration);
@@ -47,7 +51,16 @@ namespace RentalCarApi
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+<<<<<<< HEAD
                 
+=======
+
+                app.UseSwagger();
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "RentalCarApi v1");
+                });
+>>>>>>> c624222c11d759848822ae60f3a5880087eb9e50
             }
             app.UseSwagger();
             app.UseSwaggerUI(c =>
@@ -55,9 +68,18 @@ namespace RentalCarApi
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "RentalCarApi v1");
             });
 
+<<<<<<< HEAD
             //app.UseHttpsRedirection();
+=======
+            app.UseSwagger();
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "RentalCarApi v1"));
+
+            app.UseHttpsRedirection();
+>>>>>>> c624222c11d759848822ae60f3a5880087eb9e50
 
             app.UseRouting();
+
+            app.UseAuthorization();
 
             app.UseAuthorization();
             Seeder.Seed(roleManager, userManager, dbContext).GetAwaiter().GetResult();

@@ -13,7 +13,7 @@ namespace RentalCarApi.Middlewares.Filters
     {
         public override void OnActionExecuting(HttpActionContext context)
         {
-            if (context.ModelState.IsValid)
+            if (!context.ModelState.IsValid)
             {
                 context.Response = context.Request.CreateResponse(HttpStatusCode.BadRequest, new ValidationModelResult(context.ModelState));
             }
