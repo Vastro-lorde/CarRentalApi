@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace RentalCarApi.Middlewares.Filters
+namespace RentalCarCore.Utilities.Filters
 {
     public interface IValidationError
     {

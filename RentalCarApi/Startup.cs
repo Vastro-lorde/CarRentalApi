@@ -54,31 +54,11 @@ namespace RentalCarApi
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-<<<<<<< HEAD
-<<<<<<< HEAD
-                
-=======
 
-                app.UseSwagger();
-                app.UseSwaggerUI(c =>
-                {
-                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "RentalCarApi v1");
-                });
->>>>>>> c624222c11d759848822ae60f3a5880087eb9e50
-=======
->>>>>>> 8f0f94466e24035cd2bf27ba317d6fd61269edc2
             }
+            
             app.UseSwagger();
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "RentalCarApi v1");
-            });
 
-<<<<<<< HEAD
-            //app.UseHttpsRedirection();
-=======
-            app.UseSwagger();
-            //app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "RentalCarApi v1"));
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Car Rental Api v1");
@@ -86,7 +66,6 @@ namespace RentalCarApi
             });
 
             app.UseHttpsRedirection();
->>>>>>> c624222c11d759848822ae60f3a5880087eb9e50
 
             app.UseCors("CorsPolicy");
 

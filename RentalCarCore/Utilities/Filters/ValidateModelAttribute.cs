@@ -7,7 +7,7 @@ using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
 using System.Web.Http.ModelBinding;
 
-namespace RentalCarApi.Middlewares.Filters
+namespace RentalCarCore.Utilities.Filters
 {
     public class ValidateModelAttribute:ActionFilterAttribute
     {

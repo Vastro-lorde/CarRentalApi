@@ -1,4 +1,4 @@
-﻿namespace RentalCarApi.Middlewares.Filters
+﻿namespace RentalCarCore.Utilities.Filters
 {
     public class ValidationError : IValidationError
     {

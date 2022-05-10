@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Net;
 
-namespace RentalCarApi.Middlewares.Filters
+namespace RentalCarCore.Utilities.Filters
 {
     public interface IValitionAttribute
     {

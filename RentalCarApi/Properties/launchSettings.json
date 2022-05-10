@@ -20,16 +20,11 @@
     "RentalCarApi": {
       "commandName": "Project",
       "launchBrowser": true,
-<<<<<<< HEAD
-      "launchUrl": "swagger",
-=======
      // "launchUrl": "swagger",
       "applicationUrl": "http://localhost:5000",
->>>>>>> 8f0f94466e24035cd2bf27ba317d6fd61269edc2
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "http://localhost:5000",
       "dotnetRunMessages": "true"
     },
     "Docker": {
