@@ -367,7 +367,7 @@ namespace RentalCarInfrastructure.Migrations
                     b.Property<DateTime>("ModifiedAt")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<string>("SociallMedia")
+                    b.Property<string>("SocialMedia")
                         .HasMaxLength(50)
                         .HasColumnType("character varying(50)");
 
@@ -506,6 +506,10 @@ namespace RentalCarInfrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("text");
 
+                    b.Property<string>("CarId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp without time zone");
 
@@ -519,15 +523,11 @@ namespace RentalCarInfrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("carId")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("CarId");
 
-                    b.HasIndex("carId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Ratings");
                 });
@@ -844,15 +844,15 @@ namespace RentalCarInfrastructure.Migrations
 
             modelBuilder.Entity("RentalCarInfrastructure.Models.Rating", b =>
                 {
-                    b.HasOne("RentalCarInfrastructure.Models.User", null)
+                    b.HasOne("RentalCarInfrastructure.Models.Car", null)
                         .WithMany("Ratings")
-                        .HasForeignKey("UserId")
+                        .HasForeignKey("CarId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("RentalCarInfrastructure.Models.Car", null)
+                    b.HasOne("RentalCarInfrastructure.Models.User", null)
                         .WithMany("Ratings")
-                        .HasForeignKey("carId")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

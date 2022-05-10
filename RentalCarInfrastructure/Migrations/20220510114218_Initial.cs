@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace RentalCarInfrastructure.Migrations
 {
-    public partial class initial : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -196,7 +196,7 @@ namespace RentalCarInfrastructure.Migrations
                     BusinessPhoneNumber = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
                     IsActivated = table.Column<bool>(type: "boolean", nullable: false),
                     IdentityNumber = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
-                    SociallMedia = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
+                    SocialMedia = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     ModifiedAt = table.Column<DateTime>(type: "timestamp without time zone", nullable: false)
                 },
@@ -377,7 +377,7 @@ namespace RentalCarInfrastructure.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "text", nullable: false),
-                    carId = table.Column<string>(type: "text", nullable: false),
+                    CarId = table.Column<string>(type: "text", nullable: false),
                     UserId = table.Column<string>(type: "text", nullable: false),
                     Ratings = table.Column<int>(type: "integer", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
@@ -393,8 +393,8 @@ namespace RentalCarInfrastructure.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Ratings_Cars_carId",
-                        column: x => x.carId,
+                        name: "FK_Ratings_Cars_CarId",
+                        column: x => x.CarId,
                         principalTable: "Cars",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -539,9 +539,9 @@ namespace RentalCarInfrastructure.Migrations
                 column: "CarId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Ratings_carId",
+                name: "IX_Ratings_CarId",
                 table: "Ratings",
-                column: "carId");
+                column: "CarId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Ratings_UserId",
