@@ -34,6 +34,9 @@ namespace RentalCarApi
             services.AddScoped<IImageService, ImageService>();
             services.Configure<ImageUploadSettings>(Configuration.GetSection("ImageUploadSettings"));
 
+            services.AddSwaggerConfiguration();
+            services.ConfigureAuthentication(Configuration);
+
             services.AddControllers();
             services.AddAutoMapper(typeof(Startup));
             services.RegisterDbContext(Configuration);
@@ -52,6 +55,7 @@ namespace RentalCarApi
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+
                 app.UseSwagger();
                 app.UseSwaggerUI(c =>
                 {
@@ -59,9 +63,14 @@ namespace RentalCarApi
                 });
             }
 
+            app.UseSwagger();
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "RentalCarApi v1"));
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseAuthorization();
 
             app.UseAuthorization();
             Seeder.Seed(roleManager, userManager, dbContext).GetAwaiter().GetResult();

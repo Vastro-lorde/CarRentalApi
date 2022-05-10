@@ -10,7 +10,7 @@ namespace RentalCarInfrastructure.Models
     public class Rating : BaseEntity
     {
         [Required]
-        public string carId { get; set; }
+        public string CarId { get; set; }
 
         [Required]
         public string UserId { get; set; }
