@@ -29,6 +29,7 @@ namespace RentalCarApi
         {
 
             services.AddSwaggerConfiguration();
+            services.AddCorsConfiguration();
             services.ConfigureAuthentication(Configuration);
 
             services.AddControllers();
@@ -36,10 +37,6 @@ namespace RentalCarApi
             services.RegisterDbContext(Configuration);
             services.RegisterIdentityUser(Configuration);
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "RentalCarApi", Version = "v1" });
-            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,22 +46,21 @@ namespace RentalCarApi
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-
-                app.UseSwagger();
-                app.UseSwaggerUI(c =>
-                {
-                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "RentalCarApi v1");
-                });
             }
 
             app.UseSwagger();
-            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "RentalCarApi v1"));
+            //app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "RentalCarApi v1"));
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Car Rental Api v1");
+                c.RoutePrefix = string.Empty;
+            });
 
             app.UseHttpsRedirection();
 
-            app.UseRouting();
+            app.UseCors("CorsPolicy");
 
-            app.UseAuthorization();
+            app.UseRouting();
 
             app.UseAuthorization();
             Seeder.Seed(roleManager, userManager, dbContext).GetAwaiter().GetResult();
