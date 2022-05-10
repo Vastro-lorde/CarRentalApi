@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace RentalCarInfrastructure.ModelImage
 {
-    internal class ImageAddedDto
+    public class ImageAddedDto
     {
+        public string PublicId { get; set; }
+        public string Url { get; set; }
     }
 }

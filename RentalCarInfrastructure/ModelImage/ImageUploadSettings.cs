@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace RentalCarInfrastructure.ModelImage
 {
-    internal class ImageUploadSettings
+    public class ImageUploadSettings
     {
+        public string CloudName { get; set; }
+        public string APIKey { get; set; }
+        public string APISecret { get; set; }
     }
 }

@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace RentalCarInfrastructure.ModelMail
 {
-    internal class IMailService
+    public interface IMailService
     {
+        Task SendEmailAsync(MailRequest mailRequest);
     }
 }
