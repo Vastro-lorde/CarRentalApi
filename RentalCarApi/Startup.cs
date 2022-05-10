@@ -8,6 +8,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using RentalCarApi.Extentions;
 using RentalCarInfrastructure.Context;
+using RentalCarInfrastructure.ModelImage;
+using RentalCarInfrastructure.ModelMail;
 using RentalCarInfrastructure.Models;
 using RentalCarInfrastructure.Repositories.Implementations;
 using RentalCarInfrastructure.Repositories.Interfaces;
@@ -27,6 +29,10 @@ namespace RentalCarApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
+            services.AddScoped<IMailService, MailService>();
+            services.AddScoped<IImageService, ImageService>();
+            services.Configure<ImageUploadSettings>(Configuration.GetSection("ImageUploadSettings"));
 
             services.AddSwaggerConfiguration();
             services.AddCorsConfiguration();
