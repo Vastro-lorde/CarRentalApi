@@ -73,7 +73,7 @@
         "Offers": [
           {
             "Id": "befb0fd9-76f4-41d5-aa08-0004eb0d3eab",
-            "Discription": "Dolor fugiat fugiat mollit sit et sit dolore qui. Tempor irure.\r\n",
+            "Description": "Dolor fugiat fugiat mollit sit et sit dolore qui. Tempor irure.\r\n",
             "Discount": 20.0,
             "TypeOfOffer": "Money",
             "IsActive": true,
@@ -83,7 +83,7 @@
           },
           {
             "Id": "d8e930a6-92b5-4f7a-ab8c-efccbbd42f48",
-            "Discription": "Eiusmod Culpa Lorem nisi nostrud fugiat. proident nostrud ea eu.\r\n",
+            "Description": "Eiusmod Culpa Lorem nisi nostrud fugiat. proident nostrud ea eu.\r\n",
             "Discount": 15.0,
             "TypeOfOffer": "Money",
             "IsActive": true,
@@ -95,19 +95,19 @@
         "Ratings": [
           {
             "Id": "7d702b71-6343-41bf-8243-e5a9842b3da3",
-            "Rating": 4,
+            "Ratings": 4,
             "UserId": "2bf60ad0-f81b-4e9e-b9f6-5b7755d4d3f0",
             "CreatedAt": "2019-04-06"
           },
           {
             "Id": "1fdc0537-6f46-4f66-98b4-616e873c6e46",
-            "Rating": 2,
+            "Ratings": 2,
             "UserId": "2bf60ad0-f81b-4e9e-b9f6-5b7755d4d3f0",
             "CreatedAt": "2015-06-20"
           },
           {
             "Id": "100a912c-f6af-41a6-a7b3-d9485af4fb18",
-            "Rating": 4,
+            "Ratings": 4,
             "UserId": "2bf60ad0-f81b-4e9e-b9f6-5b7755d4d3f0",
             "CreatedAt": "2015-10-03"
           }
@@ -206,7 +206,7 @@
         "Offers": [
           {
             "Id": "de60a8e3-a06c-4a16-96ca-6962c4da904e",
-            "Discription": "Sunt amet ipsum mollit reprehenderit quis adipisicing.\r\n",
+            "Description": "Sunt amet ipsum mollit reprehenderit quis adipisicing.\r\n",
             "Discount": 25.0,
             "TypeOfOffer": "Money",
             "IsActive": false,
@@ -216,7 +216,7 @@
           },
           {
             "Id": "71afa95c-0fa4-4996-a9e7-3f1283a37137",
-            "Discription": "Minim labore culpa ut. Veniam laboris eu tempor fugiat qui.\r\n",
+            "Description": "Minim labore culpa ut. Veniam laboris eu tempor fugiat qui.\r\n",
             "Discount": 30.0,
             "TypeOfOffer": "Money",
             "IsActive": true,
@@ -228,13 +228,13 @@
         "Ratings": [
           {
             "Id": "7d775f82-7d24-474c-971a-444c7f7d0c56",
-            "Rating": 3,
+            "Ratings": 3,
             "UserId": "8dcc5008-7e40-496e-b81f-cb731c352d0c",
             "CreatedAt": "2021-06-14"
           },
           {
             "Id": "67bc6c5d-e681-48c1-bb2b-3da9c6560734",
-            "Rating": 1,
+            "Ratings": 1,
             "UserId": "8dcc5008-7e40-496e-b81f-cb731c352d0c",
             "CreatedAt": "2017-11-06"
           }
@@ -365,7 +365,7 @@
         "Offers": [
           {
             "Id": "7c68e8a4-76b7-44d9-9fb0-546ccc3be19b",
-            "Discription": "Dolor fugiat fugiat mollit sit et sit dolore qui. Tempor irure.\r\n",
+            "Description": "Dolor fugiat fugiat mollit sit et sit dolore qui. Tempor irure.\r\n",
             "Discount": 20.0,
             "TypeOfOffer": "Money",
             "IsActive": true,
@@ -375,7 +375,7 @@
           },
           {
             "Id": "e4f24067-1fe8-441c-ab6d-da9731faa366",
-            "Discription": "Eiusmod Culpa Lorem nisi nostrud fugiat. proident nostrud ea eu.\r\n",
+            "Description": "Eiusmod Culpa Lorem nisi nostrud fugiat. proident nostrud ea eu.\r\n",
             "Discount": 15.0,
             "TypeOfOffer": "Money",
             "IsActive": true,
@@ -387,13 +387,13 @@
         "Ratings": [
           {
             "Id": "e52d548d-daca-49db-8374-ffd20eaa19a9",
-            "Rating": 2,
+            "Ratings": 2,
             "UserId": "eacdea38-c41b-434b-8f4d-b0974f100ded",
             "CreatedAt": "2015-06-20"
           },
           {
             "Id": "c63da761-63a0-4a84-a370-cf1a8354b051",
-            "Rating": 4,
+            "Ratings": 4,
             "UserId": "eacdea38-c41b-434b-8f4d-b0974f100ded",
             "CreatedAt": "2015-10-03"
           }
@@ -492,7 +492,7 @@
         "Offers": [
           {
             "Id": "f88dba4b-782e-4e19-b103-d38dcc9b40e4",
-            "Discription": "Dolor fugiat fugiat mollit sit et sit dolore qui. Tempor irure.\r\n",
+            "Description": "Dolor fugiat fugiat mollit sit et sit dolore qui. Tempor irure.\r\n",
             "Discount": 20.0,
             "TypeOfOffer": "Money",
             "IsActive": true,
@@ -502,7 +502,7 @@
           },
           {
             "Id": "26366c06-7e88-4ad3-94f4-ced9003e3bf5",
-            "Discription": "Eiusmod Culpa Lorem nisi nostrud fugiat. proident nostrud ea eu.\r\n",
+            "Description": "Eiusmod Culpa Lorem nisi nostrud fugiat. proident nostrud ea eu.\r\n",
             "Discount": 15.0,
             "TypeOfOffer": "Money",
             "IsActive": true,
@@ -514,13 +514,13 @@
         "Ratings": [
           {
             "Id": "ba4ea263-2946-4f3d-8a7c-aa4a6142e253",
-            "Rating": 2,
+            "Ratings": 2,
             "UserId": "0b2d859b-8de2-48b1-afc1-270679270ccf",
             "CreatedAt": "2015-06-20"
           },
           {
             "Id": "ceeee637-b778-4b1d-901e-f709ed5d902c",
-            "Rating": 4,
+            "Ratings": 4,
             "UserId": "0b2d859b-8de2-48b1-afc1-270679270ccf",
             "CreatedAt": "2015-10-03"
           }
@@ -651,7 +651,7 @@
         "Offers": [
           {
             "Id": "b6d2350e-0a2e-4b74-a4fc-689d1d1cb6c6",
-            "Discription": "Minim labore culpa ut. Veniam laboris eu tempor fugiat qui.\r\n",
+            "Description": "Minim labore culpa ut. Veniam laboris eu tempor fugiat qui.\r\n",
             "Discount": 30.0,
             "TypeOfOffer": "Money",
             "IsActive": false,
@@ -661,7 +661,7 @@
           },
           {
             "Id": "20d9d735-8da5-493e-8a48-808887b6491f",
-            "Discription": "Reprehenderi commodo ex aute dolore. Enim laborum.\r\n",
+            "Description": "Reprehenderi commodo ex aute dolore. Enim laborum.\r\n",
             "Discount": 25.0,
             "TypeOfOffer": "Money",
             "IsActive": true,
@@ -673,13 +673,13 @@
         "Ratings": [
           {
             "Id": "5098738a-6700-4216-a8cf-83fbefdf94f0",
-            "Rating": 3,
+            "Ratings": 3,
             "UserId": "2f05f94f-1d59-4078-ae13-0d39f068bb5d",
             "CreatedAt": "2019-04-06"
           },
           {
             "Id": "96b17671-802d-4448-a968-208855815d2f",
-            "Rating": 4,
+            "Ratings": 4,
             "UserId": "2f05f94f-1d59-4078-ae13-0d39f068bb5d",
             "CreatedAt": "2020-04-06"
           }
@@ -778,7 +778,7 @@
         "Offers": [
           {
             "Id": "45c33d6b-d33e-4c18-badb-e6229ebce01c",
-            "Discription": "Dolor fugiat fugiat mollit sit et sit dolore qui. Tempor irure.\r\n",
+            "Description": "Dolor fugiat fugiat mollit sit et sit dolore qui. Tempor irure.\r\n",
             "Discount": 30.0,
             "TypeOfOffer": "Money",
             "IsActive": false,
@@ -788,7 +788,7 @@
           },
           {
             "Id": "7e389efd-c165-4631-acdb-e9f7a4146e76",
-            "Discription": "Eiusmod Culpa Lorem nisi nostrud fugiat. proident nostrud ea eu.\r\n",
+            "Description": "Eiusmod Culpa Lorem nisi nostrud fugiat. proident nostrud ea eu.\r\n",
             "Discount": 15.0,
             "TypeOfOffer": "Money",
             "IsActive": true,
@@ -800,13 +800,13 @@
         "Ratings": [
           {
             "Id": "449f6f1f-4d8f-4fd6-b8e4-763cab6a10fa",
-            "Rating": 4,
+            "Ratings": 4,
             "UserId": "7dfa1ecc-2230-444e-9c7e-955119e42ff5",
             "CreatedAt": "2015-06-20"
           },
           {
             "Id": "08e42d83-766a-4964-8799-b5500e541eb1",
-            "Rating": 5,
+            "Ratings": 5,
             "UserId": "7dfa1ecc-2230-444e-9c7e-955119e42ff5",
             "CreatedAt": "2015-10-03"
           }
@@ -937,7 +937,7 @@
         "Offers": [
           {
             "Id": "2da6cbe4-d599-44f6-9e75-5190f7a15cb9",
-            "Discription": "Dolor fugiat fugiat mollit sit et sit dolore qui. Tempor irure.\r\n",
+            "Description": "Dolor fugiat fugiat mollit sit et sit dolore qui. Tempor irure.\r\n",
             "Discount": 30.0,
             "TypeOfOffer": "Money",
             "IsActive": false,
@@ -947,7 +947,7 @@
           },
           {
             "Id": "ef562125-42bd-482a-b53e-06725ff8bde0",
-            "Discription": "Eiusmod Culpa Lorem nisi nostrud fugiat. proident nostrud ea eu.\r\n",
+            "Description": "Eiusmod Culpa Lorem nisi nostrud fugiat. proident nostrud ea eu.\r\n",
             "Discount": 15.0,
             "TypeOfOffer": "Money",
             "IsActive": true,
@@ -959,13 +959,13 @@
         "Ratings": [
           {
             "Id": "357193a6-830c-4808-ac42-f4634031dd86",
-            "Rating": 4,
+            "Ratings": 4,
             "UserId": "27e9e275-adde-4b6d-881c-6397b46a9020",
             "CreatedAt": "2015-06-20"
           },
           {
             "Id": "522b4718-0662-4f3c-876d-d6c2b90ee0a2",
-            "Rating": 4,
+            "Ratings": 4,
             "UserId": "27e9e275-adde-4b6d-881c-6397b46a9020",
             "CreatedAt": "2015-10-03"
           }
@@ -1064,7 +1064,7 @@
         "Offers": [
           {
             "Id": "3ec6247e-feca-4cfc-8744-e0f1f8851b56",
-            "Discription": "Dolor fugiat fugiat mollit sit et sit dolore qui. Tempor irure.\r\n",
+            "Description": "Dolor fugiat fugiat mollit sit et sit dolore qui. Tempor irure.\r\n",
             "Discount": 30.0,
             "TypeOfOffer": "Money",
             "IsActive": false,
@@ -1074,7 +1074,7 @@
           },
           {
             "Id": "7af6d582-3822-443d-b55c-dac07e0fe0d8",
-            "Discription": "Eiusmod Culpa Lorem nisi nostrud fugiat. proident nostrud ea eu.\r\n",
+            "Description": "Eiusmod Culpa Lorem nisi nostrud fugiat. proident nostrud ea eu.\r\n",
             "Discount": 15.0,
             "TypeOfOffer": "Money",
             "IsActive": true,
@@ -1086,13 +1086,13 @@
         "Ratings": [
           {
             "Id": "5cd51ee4-2ed6-4bef-98d3-8da9cdf1c3af",
-            "Rating": 4,
+            "Ratings": 4,
             "UserId": "f40276cc-ce31-474a-8a7e-a697ca82574b",
             "CreatedAt": "2015-06-20"
           },
           {
             "Id": "9bdc1685-906a-482e-893f-cd5d5be88fd2",
-            "Rating": 4,
+            "Ratings": 4,
             "UserId": "f40276cc-ce31-474a-8a7e-a697ca82574b",
             "CreatedAt": "2015-10-03"
           }
@@ -1222,7 +1222,7 @@
         "Offers": [
           {
             "Id": "7a717597-0e26-4b41-9fc1-a7d700a5e3be",
-            "Discription": "Sunt amet ipsum mollit reprehenderit quis adipisicing.\r\n",
+            "Description": "Sunt amet ipsum mollit reprehenderit quis adipisicing.\r\n",
             "Discount": 25.0,
             "TypeOfOffer": "Money",
             "IsActive": true,
@@ -1232,7 +1232,7 @@
           },
           {
             "Id": "a2fc3796-89bf-4276-b22b-0f186ebc1d51",
-            "Discription": "Minim labore culpa ut. Veniam laboris eu tempor fugiat qui.\r\n",
+            "Description": "Minim labore culpa ut. Veniam laboris eu tempor fugiat qui.\r\n",
             "Discount": 25.0,
             "TypeOfOffer": "Money",
             "IsActive": false,
@@ -1244,13 +1244,13 @@
         "Ratings": [
           {
             "Id": "12dcde7f-41ff-40c2-ac93-8dbe5034dca0",
-            "Rating": 3,
+            "Ratings": 3,
             "UserId": "d7c29369-929b-4426-b54d-04b5f1560b50",
             "CreatedAt": "2021-06-14"
           },
           {
             "Id": "03f52f96-0312-4cee-8800-f8f467b546ba",
-            "Rating": 4,
+            "Ratings": 4,
             "UserId": "d7c29369-929b-4426-b54d-04b5f1560b50",
             "CreatedAt": "2017-11-06"
           }
@@ -1349,7 +1349,7 @@
         "Offers": [
           {
             "Id": "9fd7e19b-f378-4eeb-9b57-9416b992c894",
-            "Discription": "Dolor fugiat fugiat mollit sit et sit dolore qui. Tempor irure.\r\n",
+            "Description": "Dolor fugiat fugiat mollit sit et sit dolore qui. Tempor irure.\r\n",
             "Discount": 30.0,
             "TypeOfOffer": "Money",
             "IsActive": false,
@@ -1359,7 +1359,7 @@
           },
           {
             "Id": "8a712a7d-6ccb-415e-b178-8641d4ad07a7",
-            "Discription": "Eiusmod Culpa Lorem nisi nostrud fugiat. proident nostrud ea eu.\r\n",
+            "Description": "Eiusmod Culpa Lorem nisi nostrud fugiat. proident nostrud ea eu.\r\n",
             "Discount": 15.0,
             "TypeOfOffer": "Money",
             "IsActive": true,
@@ -1371,13 +1371,13 @@
         "Ratings": [
           {
             "Id": "3cc434c8-788c-482f-844f-8834aa97259b",
-            "Rating": 4,
+            "Ratings": 4,
             "UserId": "2f05f94f-1d59-4078-ae13-0d39f068bb5d",
             "CreatedAt": "2015-06-20"
           },
           {
             "Id": "9749d4ae-98b9-42db-a8bd-e19a86f0d535",
-            "Rating": 4,
+            "Ratings": 4,
             "UserId": "2f05f94f-1d59-4078-ae13-0d39f068bb5d",
             "CreatedAt": "2015-10-03"
           }
