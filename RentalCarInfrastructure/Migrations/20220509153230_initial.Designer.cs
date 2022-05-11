@@ -10,7 +10,7 @@ using RentalCarInfrastructure.Context;
 namespace RentalCarInfrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220508132216_initial")]
+    [Migration("20220509153230_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

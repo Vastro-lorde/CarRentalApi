@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using RentalCarApi.Extentions;
+using RentalCarApi.Middlewares;
 using RentalCarInfrastructure.Context;
 using RentalCarInfrastructure.ModelImage;
 using RentalCarInfrastructure.ModelMail;
@@ -19,12 +20,14 @@ namespace RentalCarApi
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
             Configuration = configuration;
+            Environment = env;  
         }
 
         public IConfiguration Configuration { get; }
+        public IWebHostEnvironment Environment { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -35,17 +38,14 @@ namespace RentalCarApi
             services.Configure<ImageUploadSettings>(Configuration.GetSection("ImageUploadSettings"));
 
             services.AddSwaggerConfiguration();
+            services.AddCorsConfiguration();
             services.ConfigureAuthentication(Configuration);
 
             services.AddControllers();
             services.AddAutoMapper(typeof(Startup));
-            services.RegisterDbContext(Configuration);
+            services.AddDbContextAndConfigurations(Environment, Configuration);
             services.RegisterIdentityUser(Configuration);
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "RentalCarApi", Version = "v1" });
-            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -56,21 +56,23 @@ namespace RentalCarApi
             {
                 app.UseDeveloperExceptionPage();
 
-                app.UseSwagger();
-                app.UseSwaggerUI(c =>
-                {
-                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "RentalCarApi v1");
-                });
             }
-
+            
             app.UseSwagger();
-            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "RentalCarApi v1"));
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Car Rental Api v1");
+                c.RoutePrefix = string.Empty;
+            });
 
             app.UseHttpsRedirection();
 
+            app.UseCors("CorsPolicy");
+
             app.UseRouting();
 
-            app.UseAuthorization();
+            app.UseMiddleware<ErrorHandlerMiddleware>();
 
             app.UseAuthorization();
             Seeder.Seed(roleManager, userManager, dbContext).GetAwaiter().GetResult();
