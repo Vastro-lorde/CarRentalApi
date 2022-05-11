@@ -10,7 +10,7 @@ using RentalCarInfrastructure.Context;
 namespace RentalCarInfrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220509153230_initial")]
+    [Migration("20220511091059_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -369,7 +369,7 @@ namespace RentalCarInfrastructure.Migrations
                     b.Property<DateTime>("ModifiedAt")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<string>("SociallMedia")
+                    b.Property<string>("SocialMedia")
                         .HasMaxLength(50)
                         .HasColumnType("character varying(50)");
 
@@ -508,6 +508,10 @@ namespace RentalCarInfrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("text");
 
+                    b.Property<string>("CarId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp without time zone");
 
@@ -521,17 +525,48 @@ namespace RentalCarInfrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("carId")
-                        .IsRequired()
+                    b.HasKey("Id");
+
+                    b.HasIndex("CarId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Ratings");
+                });
+
+            modelBuilder.Entity("RentalCarInfrastructure.Models.RefreshToken", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<DateTime>("AddedDate")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<DateTime>("ExpiryDate")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<bool>("IsRevoked")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("IsUsed")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("JwtId")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Token")
+                        .HasColumnType("text");
+
+                    b.Property<string>("UserId")
                         .HasColumnType("text");
 
                     b.HasKey("Id");
 
                     b.HasIndex("UserId");
 
-                    b.HasIndex("carId");
-
-                    b.ToTable("Ratings");
+                    b.ToTable("RefreshTokens");
                 });
 
             modelBuilder.Entity("RentalCarInfrastructure.Models.Transaction", b =>
@@ -846,17 +881,26 @@ namespace RentalCarInfrastructure.Migrations
 
             modelBuilder.Entity("RentalCarInfrastructure.Models.Rating", b =>
                 {
+                    b.HasOne("RentalCarInfrastructure.Models.Car", null)
+                        .WithMany("Ratings")
+                        .HasForeignKey("CarId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("RentalCarInfrastructure.Models.User", null)
                         .WithMany("Ratings")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
 
-                    b.HasOne("RentalCarInfrastructure.Models.Car", null)
-                        .WithMany("Ratings")
-                        .HasForeignKey("carId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+            modelBuilder.Entity("RentalCarInfrastructure.Models.RefreshToken", b =>
+                {
+                    b.HasOne("RentalCarInfrastructure.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("RentalCarInfrastructure.Models.Transaction", b =>

@@ -41,6 +41,9 @@ namespace RentalCarApi.Extentions
                 .AddAuthorization(options => options.AddPolicy("RequireDealerAndCustomer", policy => policy.RequireRole(UserRoles.Dealer, UserRoles.Admin)));
         }
 
+
+        
+
     }
 }
 

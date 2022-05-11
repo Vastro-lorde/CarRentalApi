@@ -9,8 +9,6 @@ namespace RentalCarApi
     {
         public static void Main(string[] args)
         {
-            //CreateHostBuilder(args).Build().Run();
-
             var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
             var isDevelopment = environment == Environments.Development;
             IConfiguration config = ConfigurationSetUp.GetConfig(isDevelopment);
