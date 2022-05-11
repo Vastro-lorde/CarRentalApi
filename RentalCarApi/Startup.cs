@@ -29,14 +29,25 @@ namespace RentalCarApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddScoped<IMailService, MailService>();
+            services.AddScoped<IImageService, ImageService>();
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+
+            services.AddSwaggerConfiguration();
+            services.AddControllers();
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+
             services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
             services.Configure<ImageUploadSettings>(Configuration.GetSection("ImageUploadSettings"));
             services.ConfigureAuthentication(Configuration);
 
+
+
             services.AddAutoMapper(typeof(Startup));
             services.RegisterDbContext(Configuration);
             services.RegisterIdentityUser(Configuration);
-            services.RegisterAllService();
+            services.ConfigureCors();
 
         }
 
@@ -61,6 +72,8 @@ namespace RentalCarApi
             app.UseCors("CorsPolicy");
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
             Seeder.Seed(roleManager, userManager, dbContext).GetAwaiter().GetResult();

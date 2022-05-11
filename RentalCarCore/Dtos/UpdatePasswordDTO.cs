@@ -10,13 +10,8 @@ namespace AquaWater.Dto.Request
     public class UpdatePasswordDTO
     {
         [Required]
-        [Compare("ConfirmNewPassword")]
         public string NewPassword { get; set; }
         [Required]
-        public string ConfirmNewPassword { get; set; }
-        [Required]
         public string Email { get; set; }
-        [Required]
-        public string OldPassword { get; set; }
     }
 }
