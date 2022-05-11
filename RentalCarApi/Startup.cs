@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using RentalCarApi.Extentions;
+using RentalCarApi.Middlewares;
 using RentalCarInfrastructure.Context;
 using RentalCarInfrastructure.ModelImage;
 using RentalCarInfrastructure.ModelMail;
@@ -69,6 +70,8 @@ namespace RentalCarApi
             app.UseCors("CorsPolicy");
 
             app.UseRouting();
+
+            app.UseMiddleware<ErrorHandlerMiddleware>();
 
             app.UseAuthorization();
             Seeder.Seed(roleManager, userManager, dbContext).GetAwaiter().GetResult();
