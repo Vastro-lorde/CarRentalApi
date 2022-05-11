@@ -21,6 +21,7 @@ namespace RentalCarCore.Implementations
             _configuration = configuration;
         }
 
+
         public string GenerateToken(User user)
         {
             var userClaims = new List<Claim>
@@ -41,6 +42,11 @@ namespace RentalCarCore.Implementations
 
                 );
             return new JwtSecurityTokenHandler().WriteToken(userToken);
+        }
+
+        public string GenerateRefreshToken(User user)
+        {
+            throw new NotImplementedException();
         }
     }
 }
