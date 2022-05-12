@@ -7,13 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using RentalCarApi.Extentions;
-<<<<<<< HEAD
-using RentalCarCore.Interfaces;
-using RentalCarCore.Services;
-using RentalCarCore.Utilities;
-=======
 using RentalCarApi.Middlewares;
->>>>>>> reviews
 using RentalCarInfrastructure.Context;
 using RentalCarInfrastructure.ModelImage;
 using RentalCarInfrastructure.ModelMail;
@@ -38,14 +32,6 @@ namespace RentalCarApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-<<<<<<< HEAD
-            services.AddSwaggerConfiguration();
-            services.AddCorsConfiguration();
-            services.AddControllers();
-            services.RegisterDbContext(Configuration);
-            services.RegisterIdentityUser(Configuration);
-            services.ConfigureAuthentication(Configuration);
-=======
 
             services.AddScoped<IMailService, MailService>();
             services.AddScoped<IImageService, ImageService>();
@@ -66,7 +52,6 @@ namespace RentalCarApi
             services.RegisterIdentityUser(Configuration);
             services.ConfigureCors();
 
->>>>>>> reviews
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

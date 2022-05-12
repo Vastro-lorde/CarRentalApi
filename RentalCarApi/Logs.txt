@@ -2,3 +2,5 @@
 2022-05-11 09:40:40.113 +01:00 [INF] Application starting up
 2022-05-11 09:45:44.171 +01:00 [INF] Application starting up
 2022-05-11 09:55:39.580 +01:00 [INF] Application starting up
+2022-05-12 10:27:18.880 +01:00 [INF] Application starting up
+2022-05-12 10:29:16.392 +01:00 [INF] Application starting up
