@@ -38,11 +38,7 @@ namespace RentalCarInfrastructure.Models
         [StringLength(250, MinimumLength = 3, ErrorMessage = DataAnnotationsHelper.AvatarValidator)]
         public string Avatar { get; set; }
         public string RefreshToken { get; set; }
-<<<<<<< HEAD
         public DateTime ExpiryTime { get; set; }
-=======
-        public DateTime ExpiryTime { get; set; }    
->>>>>>> 9f7bd7411c370e2fcee6076d7a19d140eebbbb92
         public bool IsActive { get; set; }
         public virtual Dealer Dealers { get; set; }
         public virtual ICollection<Blog> Blogs { get; set; }
