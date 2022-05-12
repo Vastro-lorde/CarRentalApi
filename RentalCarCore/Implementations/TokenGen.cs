@@ -43,16 +43,10 @@ namespace RentalCarCore.Implementations
                 );
             return new JwtSecurityTokenHandler().WriteToken(userToken);
         }
-<<<<<<< HEAD
+
         public string GenerateRefreshToken()
         {
             return Guid.NewGuid().ToString();
-=======
-
-        public string GenerateRefreshToken(User user)
-        {
-            throw new NotImplementedException();
->>>>>>> reviews
         }
     }
 }

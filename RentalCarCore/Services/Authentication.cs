@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using RentalCarCore.Dtos;
 using RentalCarCore.Interfaces;
@@ -33,9 +34,9 @@ namespace RentalCarCore.Services
                 if (await _userManager.CheckPasswordAsync(user, userRequestDto.Password))
                 {
                     var response = _mapper.Map<UserResponseDto>(user);
-                    response.Token =  _tokenGen.GenerateToken(user);
+                    response.Token = _tokenGen.GenerateToken(user);
                     user.RefreshToken = _tokenGen.GenerateRefreshToken();
-                     user.ExpiryTime = DateTime.Now.AddDays(3);
+                    user.ExpiryTime = DateTime.Now.AddDays(3);
                     return new Response<UserResponseDto>
                     {
                         Data = response,
@@ -52,6 +53,38 @@ namespace RentalCarCore.Services
                 };
             }
             throw new AccessViolationException("Invalid Credentails");
+        }
+
+        public async Task<Response<string>> UpdatePasswordAsync(UpdatePasswordDTO updatePasswordDto)
+        {
+            var user = await _userManager.FindByIdAsync(updatePasswordDto.Id);
+            var comparePassword = await _userManager.CheckPasswordAsync(user, updatePasswordDto.CurrentPassword);
+            if (comparePassword)
+            {
+                var result = await _userManager.ChangePasswordAsync(user, updatePasswordDto.CurrentPassword, updatePasswordDto.NewPassword);
+                if (result.Succeeded)
+                {
+                    return new Response<string>()
+                    {
+                        IsSuccessful = true,
+                        Message = "Password updated"
+                    };
+
+                }
+                return new Response<string>()
+                {
+                    IsSuccessful = false,
+                    ResponseCode = System.Net.HttpStatusCode.BadRequest,
+                    Message = "password failed, please try again."
+                };
+            }
+
+            return new Response<string>()
+            {
+                Message = "Current password is not correct",
+                ResponseCode = System.Net.HttpStatusCode.BadRequest,
+                IsSuccessful = false
+            };
         }
     }
 }
