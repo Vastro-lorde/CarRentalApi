@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.DependencyInjection;
+using RentalCarCore.Implementations;
 using RentalCarCore.Interfaces;
 using RentalCarCore.Services;
 using RentalCarInfrastructure.Repositories.Implementations;
@@ -14,6 +15,7 @@ namespace RentalCarApi.Extentions
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddScoped<ITokenRepository, TokenRepository>();
             services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<ITokenGen, TokenGen>();
         }
     }
 }

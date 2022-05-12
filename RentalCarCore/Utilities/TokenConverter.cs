@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.WebUtilities;
 using System.Text;
 
-namespace AquaWater.BusinessLogic.Utilities
+namespace RentalCarCore.Utilities
 {
     public static class TokenConverter
     {

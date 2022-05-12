@@ -6,5 +6,6 @@ namespace RentalCarCore.Interfaces
     public interface IAuthService
     {
         Task<Response<RefreshTokenResponse>> RefreshTokenAsync(RefreshTokenRequestDTO token);
+        Task<Response<string>> EmailConfirmationAsync(ConfirmEmailRequestDTO confirmEmailRequest);
     }
 }

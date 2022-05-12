@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Identity;
 using RentalCarCore.Dtos;
 using RentalCarCore.Interfaces;
+using RentalCarCore.Utilities;
 using RentalCarInfrastructure.Models;
 using RentalCarInfrastructure.Repositories.Interfaces;
 using System;
@@ -16,10 +18,12 @@ namespace RentalCarCore.Services
     {
         private readonly ITokenRepository _tokenRepository;
         private readonly ITokenGen _tokenGen;
-        public AuthService(ITokenRepository tokenRepository, ITokenGen tokenGen)
+        private readonly UserManager<User> _userManager;
+        public AuthService(ITokenRepository tokenRepository, ITokenGen tokenGen, UserManager<User> userManager)
         {
             _tokenRepository = tokenRepository;
             _tokenGen = tokenGen;
+            _userManager = userManager;
         }
 
         public async Task<Response<RefreshTokenResponse>> RefreshTokenAsync(RefreshTokenRequestDTO token)
@@ -50,6 +54,29 @@ namespace RentalCarCore.Services
             response.Message = "Token Refresh Successfully";
             response.IsSuccessful = true;
             return response;
+        }
+
+        public async Task<Response<string>> EmailConfirmationAsync(ConfirmEmailRequestDTO confirmEmailRequest)
+        {
+            var user = await _userManager.FindByEmailAsync(confirmEmailRequest.Email);
+            if (user != null)
+            {
+                var decodedToken = TokenConverter.DecodeToken(confirmEmailRequest.Token);
+                var result = await _userManager.ConfirmEmailAsync(user, decodedToken);
+
+                if (result.Succeeded)
+                {
+                    var response = new Response<string>()
+                    {
+                        Message = "Email Confirmation was successful",
+                        IsSuccessful = true
+                    };
+
+                    return response;
+                }
+                throw new ArgumentException("Your email could not be confirmed");
+            }
+            throw new ArgumentException($"User with email '{confirmEmailRequest.Email}' not found");
         }
     }
 }

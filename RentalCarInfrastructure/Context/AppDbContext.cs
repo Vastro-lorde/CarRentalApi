@@ -26,7 +26,6 @@ namespace RentalCarInfrastructure.Context
         public DbSet<Rating> Ratings { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
         public DbSet<Trip> Trips { get; set; }
-        public virtual DbSet<RefreshToken> RefreshTokens { get; set; }
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
             var entries = ChangeTracker.Entries().Where(entry => entry.Entity is BaseEntity &&
