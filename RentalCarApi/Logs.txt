@@ -2,6 +2,68 @@
 2022-05-11 09:40:40.113 +01:00 [INF] Application starting up
 2022-05-11 09:45:44.171 +01:00 [INF] Application starting up
 2022-05-11 09:55:39.580 +01:00 [INF] Application starting up
+<<<<<<< HEAD
+2022-05-11 19:55:58.198 +01:00 [INF] Application starting up
+2022-05-11 19:56:03.704 +01:00 [FTL] The application failed to start correctly
+System.AggregateException: Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: RentalCarCore.Interfaces.IAuthService Lifetime: Scoped ImplementationType: RentalCarCore.Services.AuthService': Unable to resolve service for type 'RentalCarCore.Interfaces.ITokenGen' while attempting to activate 'RentalCarCore.Services.AuthService'.)
+ ---> System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: RentalCarCore.Interfaces.IAuthService Lifetime: Scoped ImplementationType: RentalCarCore.Services.AuthService': Unable to resolve service for type 'RentalCarCore.Interfaces.ITokenGen' while attempting to activate 'RentalCarCore.Services.AuthService'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'RentalCarCore.Interfaces.ITokenGen' while attempting to activate 'RentalCarCore.Services.AuthService'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.DefaultServiceProviderFactory.CreateServiceProvider(IServiceCollection containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at RentalCarApi.Program.Main(String[] args) in C:\Users\hp\source\repos\rentalcars-api\RentalCarApi\Program.cs:line 24
+2022-05-11 19:56:35.157 +01:00 [INF] Application starting up
+2022-05-11 19:56:36.618 +01:00 [FTL] The application failed to start correctly
+System.AggregateException: Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: RentalCarCore.Interfaces.IAuthService Lifetime: Scoped ImplementationType: RentalCarCore.Services.AuthService': Unable to resolve service for type 'RentalCarCore.Interfaces.ITokenGen' while attempting to activate 'RentalCarCore.Services.AuthService'.)
+ ---> System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: RentalCarCore.Interfaces.IAuthService Lifetime: Scoped ImplementationType: RentalCarCore.Services.AuthService': Unable to resolve service for type 'RentalCarCore.Interfaces.ITokenGen' while attempting to activate 'RentalCarCore.Services.AuthService'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'RentalCarCore.Interfaces.ITokenGen' while attempting to activate 'RentalCarCore.Services.AuthService'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.DefaultServiceProviderFactory.CreateServiceProvider(IServiceCollection containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at RentalCarApi.Program.Main(String[] args) in C:\Users\hp\source\repos\rentalcars-api\RentalCarApi\Program.cs:line 24
+2022-05-11 20:07:33.962 +01:00 [INF] Application starting up
+2022-05-11 20:10:55.942 +01:00 [INF] Application starting up
+2022-05-11 20:33:08.694 +01:00 [INF] Application starting up
+2022-05-11 20:35:21.579 +01:00 [INF] Application starting up
+2022-05-11 20:39:01.655 +01:00 [INF] Application starting up
+2022-05-11 20:55:15.327 +01:00 [INF] Application starting up
+2022-05-11 23:49:11.001 +01:00 [INF] Application starting up
+2022-05-11 23:52:51.318 +01:00 [INF] Application starting up
+2022-05-12 11:07:23.422 +01:00 [INF] Application starting up
+2022-05-12 11:09:06.766 +01:00 [INF] Application starting up
+2022-05-12 11:10:07.817 +01:00 [INF] Application starting up
+2022-05-12 12:06:44.313 +01:00 [INF] Application starting up
+2022-05-12 12:12:41.296 +01:00 [INF] Application starting up
+2022-05-12 12:14:02.845 +01:00 [INF] Application starting up
+2022-05-12 12:18:29.015 +01:00 [INF] Application starting up
+2022-05-12 12:26:32.386 +01:00 [INF] Application starting up
+2022-05-12 12:30:11.931 +01:00 [INF] Application starting up
+2022-05-12 12:34:15.094 +01:00 [INF] Application starting up
+=======
 2022-05-12 10:27:18.880 +01:00 [INF] Application starting up
 2022-05-12 10:29:16.392 +01:00 [INF] Application starting up
 2022-05-12 11:12:07.241 +01:00 [INF] Application starting up
@@ -19,3 +81,4 @@
 2022-05-12 12:32:20.113 +01:00 [INF] Application starting up
 2022-05-12 12:40:27.852 +01:00 [INF] Application starting up
 2022-05-12 15:51:32.995 +01:00 [INF] Application starting up
+>>>>>>> 5f54b03cdce47f9278fd7b6200cff4c47f341b09

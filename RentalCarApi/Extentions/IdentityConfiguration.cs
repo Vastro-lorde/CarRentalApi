@@ -36,7 +36,8 @@ namespace RentalCarApi.Extentions
             services.AddScoped<ITokenGen, TokenGen>();
             services.AddAutoMapper(typeof(UserMappings));
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-
+            services.AddScoped<ITokenRepository, TokenRepository>();
+            services.AddScoped<IAuthentication, Authentication>();
         }
     }
 }
