@@ -7,6 +7,13 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using RentalCarApi.Extentions;
+<<<<<<< HEAD
+using RentalCarCore.Interfaces;
+using RentalCarCore.Services;
+using RentalCarCore.Utilities;
+=======
+using RentalCarApi.Middlewares;
+>>>>>>> reviews
 using RentalCarInfrastructure.Context;
 using RentalCarInfrastructure.ModelImage;
 using RentalCarInfrastructure.ModelMail;
@@ -22,7 +29,7 @@ namespace RentalCarApi
         public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
             Configuration = configuration;
-            Environment = env;  
+            Environment = env;
         }
 
         public IConfiguration Configuration { get; }
@@ -31,20 +38,35 @@ namespace RentalCarApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
-            services.AddScoped<IMailService, MailService>();
-            services.AddScoped<IImageService, ImageService>();
-            services.Configure<ImageUploadSettings>(Configuration.GetSection("ImageUploadSettings"));
-
+<<<<<<< HEAD
             services.AddSwaggerConfiguration();
             services.AddCorsConfiguration();
+            services.AddControllers();
+            services.RegisterDbContext(Configuration);
+            services.RegisterIdentityUser(Configuration);
+            services.ConfigureAuthentication(Configuration);
+=======
+
+            services.AddScoped<IMailService, MailService>();
+            services.AddScoped<IImageService, ImageService>();
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+
+            services.AddSwaggerConfiguration();
+            services.AddControllers();
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+
+            services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
+            services.Configure<ImageUploadSettings>(Configuration.GetSection("ImageUploadSettings"));
             services.ConfigureAuthentication(Configuration);
 
-            services.AddControllers();
+
+
             services.AddAutoMapper(typeof(Startup));
             services.AddDbContextAndConfigurations(Environment, Configuration);
             services.RegisterIdentityUser(Configuration);
-            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.ConfigureCors();
+
+>>>>>>> reviews
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -56,7 +78,7 @@ namespace RentalCarApi
                 app.UseDeveloperExceptionPage();
 
             }
-            
+
             app.UseSwagger();
 
             app.UseSwaggerUI(c =>
@@ -70,6 +92,8 @@ namespace RentalCarApi
             app.UseCors("CorsPolicy");
 
             app.UseRouting();
+
+            app.UseMiddleware<ErrorHandlerMiddleware>();
 
             app.UseAuthorization();
             Seeder.Seed(roleManager, userManager, dbContext).GetAwaiter().GetResult();
