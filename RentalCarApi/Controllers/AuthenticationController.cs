@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RentalCarCore.Dtos;
-using RentalCarCore.Services;
+using RentalCarCore.Interfaces;
 using System;
 using System.Threading.Tasks;
 
@@ -9,15 +9,16 @@ namespace RentalCarApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AuthenticationController1 : ControllerBase
+    public class AuthenticationController : ControllerBase
     {
         private readonly IAuthentication _authentication;
 
-        public AuthenticationController1(IAuthentication authentication)
+        public AuthenticationController(IAuthentication authentication)
         {
             _authentication = authentication;
         }
-        [HttpPost("Login")]
+
+        [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] UserRequestDto userRequest)
         {
             try

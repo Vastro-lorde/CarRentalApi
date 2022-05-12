@@ -4,9 +4,7 @@ using RentalCarCore.Dtos;
 using RentalCarCore.Interfaces;
 using RentalCarInfrastructure.Models;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace RentalCarCore.Services
@@ -15,26 +13,43 @@ namespace RentalCarCore.Services
     {
         private readonly UserManager<User> _userManager;
         private readonly IMapper _mapper;
-        private readonly ITokenGenerator _tokenGenerator;
+        private readonly ITokenGen _tokenGen;
 
-        public Authentication(UserManager<User> userManager, IMapper mapper, ITokenGenerator tokenGenerator)
+        public Authentication(UserManager<User> userManager, IMapper mapper, ITokenGen tokenGen)
         {
             _userManager = userManager;
             _mapper = mapper;
-            _tokenGenerator = tokenGenerator;
+            _tokenGen = tokenGen;
         }
-        public async Task<UserResponseDto> Login(UserRequestDto userRequestDto)
+        public async Task<Response<UserResponseDto>> Login(UserRequestDto userRequestDto)
         {
             User user = await _userManager.FindByEmailAsync(userRequestDto.Email);
+            if (user.GetType().GetProperties().All(x => x.GetValue(user) == null))
+            {
+                throw new Exception("");
+            }
             if (user != null)
             {
                 if (await _userManager.CheckPasswordAsync(user, userRequestDto.Password))
                 {
                     var response = _mapper.Map<UserResponseDto>(user);
-                    response.Token = await _tokenGenerator.GenerateToken(user);
-                    return response;
+                    response.Token =  _tokenGen.GenerateToken(user);
+                    user.RefreshToken = _tokenGen.GenerateRefreshToken();
+                     user.ExpiryTime = DateTime.Now.AddDays(3);
+                    return new Response<UserResponseDto>
+                    {
+                        Data = response,
+                        Message = MessageResponse.SuccessMessage,
+                        ResponseCode = System.Net.HttpStatusCode.OK,
+                        IsSuccessful = true
+                    };
                 }
-                throw new AccessViolationException("Invalid Details");
+                return new Response<UserResponseDto>
+                {
+                    Message = MessageResponse.FailedMessage,
+                    ResponseCode = System.Net.HttpStatusCode.BadRequest,
+                    IsSuccessful = false,
+                };
             }
             throw new AccessViolationException("Invalid Credentails");
         }

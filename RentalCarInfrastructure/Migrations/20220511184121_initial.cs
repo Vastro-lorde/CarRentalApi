@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace RentalCarInfrastructure.Migrations
 {
-    public partial class Initial : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -35,6 +35,8 @@ namespace RentalCarInfrastructure.Migrations
                     Address = table.Column<string>(type: "character varying(250)", maxLength: 250, nullable: true),
                     Gender = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
                     Avatar = table.Column<string>(type: "character varying(250)", maxLength: 250, nullable: true),
+                    RefreshToken = table.Column<string>(type: "text", nullable: true),
+                    ExpiryTime = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     IsActive = table.Column<bool>(type: "boolean", nullable: false),
                     UserName = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),

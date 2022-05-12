@@ -42,5 +42,9 @@ namespace RentalCarCore.Implementations
                 );
             return new JwtSecurityTokenHandler().WriteToken(userToken);
         }
+        public string GenerateRefreshToken()
+        {
+            return Guid.NewGuid().ToString();
+        }
     }
 }

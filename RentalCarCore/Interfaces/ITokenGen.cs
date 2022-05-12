@@ -10,5 +10,6 @@ namespace RentalCarCore.Interfaces
     public interface ITokenGen
     {
         string GenerateToken(User user);
+        public string GenerateRefreshToken();
     }
 }

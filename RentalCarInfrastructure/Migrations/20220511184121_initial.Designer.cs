@@ -10,8 +10,8 @@ using RentalCarInfrastructure.Context;
 namespace RentalCarInfrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220510114218_Initial")]
-    partial class Initial
+    [Migration("20220511184121_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -640,6 +640,9 @@ namespace RentalCarInfrastructure.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("boolean");
 
+                    b.Property<DateTime>("ExpiryTime")
+                        .HasColumnType("timestamp without time zone");
+
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -686,6 +689,9 @@ namespace RentalCarInfrastructure.Migrations
 
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("boolean");
+
+                    b.Property<string>("RefreshToken")
+                        .HasColumnType("text");
 
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("text");
