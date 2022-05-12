@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.OpenApi.Models;
 using RentalCarApi.Extentions;
 using RentalCarApi.Middlewares;
 using RentalCarInfrastructure.Context;
@@ -23,7 +22,7 @@ namespace RentalCarApi
         public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
             Configuration = configuration;
-            Environment = env;  
+            Environment = env;
         }
 
         public IConfiguration Configuration { get; }
@@ -36,16 +35,17 @@ namespace RentalCarApi
             services.AddScoped<IMailService, MailService>();
             services.AddScoped<IImageService, ImageService>();
             services.Configure<ImageUploadSettings>(Configuration.GetSection("ImageUploadSettings"));
-
             services.AddSwaggerConfiguration();
-            services.AddCorsConfiguration();
+            services.AddControllers();
+            services.RegisterIdentityUser(Configuration);
             services.ConfigureAuthentication(Configuration);
 
             services.AddControllers();
+            services.AddControllersWithViews();
             services.AddAutoMapper(typeof(Startup));
             services.AddDbContextAndConfigurations(Environment, Configuration);
             services.RegisterIdentityUser(Configuration);
-            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.ConfigureCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,7 +57,7 @@ namespace RentalCarApi
                 app.UseDeveloperExceptionPage();
 
             }
-            
+
             app.UseSwagger();
 
             app.UseSwaggerUI(c =>
@@ -66,7 +66,7 @@ namespace RentalCarApi
                 c.RoutePrefix = string.Empty;
             });
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseCors("CorsPolicy");
 

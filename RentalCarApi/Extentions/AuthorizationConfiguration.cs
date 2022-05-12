@@ -5,6 +5,7 @@ using Microsoft.IdentityModel.Tokens;
 using RentalCarCore.Utilities;
 using System;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace RentalCarApi.Extentions
 {
@@ -32,6 +33,21 @@ namespace RentalCarApi.Extentions
                         new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWTSettings:SecretKey"])),
                     ClockSkew = TimeSpan.Zero
                 };
+
+                // an event to let us know if jwt access token has expired
+
+                options.Events = new JwtBearerEvents
+                {
+                    OnAuthenticationFailed = response =>
+                    {
+                        if (response.Exception.GetType() == typeof(SecurityTokenExpiredException))
+                        {
+                            response.Response.Headers.Add("Is-token-expired", "true");
+                        }
+                        return Task.CompletedTask;
+                    }
+                };
+
             });
 
             services.AddAuthorization(options =>
@@ -41,6 +57,8 @@ namespace RentalCarApi.Extentions
                 .AddAuthorization(options => options.AddPolicy("RequireDealerAndCustomer", policy => policy.RequireRole(UserRoles.Dealer, UserRoles.Admin)));
         }
 
+
+        
+
     }
 }
-

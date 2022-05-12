@@ -1,6 +1,8 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using RentalCarCore.Dtos;
 using RentalCarCore.Interfaces;
+using RentalCarInfrastructure.Context;
 using RentalCarInfrastructure.Models;
 using System;
 using System.Collections.Generic;
@@ -15,11 +17,11 @@ namespace RentalCarCore.Implementations
     public class TokenGen : ITokenGen
     {
         private readonly IConfiguration _configuration;
-
         public TokenGen(IConfiguration configuration)
         {
             _configuration = configuration;
         }
+
 
         public string GenerateToken(User user)
         {
@@ -42,5 +44,10 @@ namespace RentalCarCore.Implementations
                 );
             return new JwtSecurityTokenHandler().WriteToken(userToken);
         }
-    }
+
+        public string GenerateRefreshToken()
+        {
+            return Guid.NewGuid().ToString(); 
+        }
+}
 }
