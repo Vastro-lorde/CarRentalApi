@@ -22,6 +22,7 @@ namespace RentalCarCore.Implementations
             _configuration = configuration;
         }
 
+
         public string GenerateToken(User user)
         {
             var userClaims = new List<Claim>
@@ -43,9 +44,22 @@ namespace RentalCarCore.Implementations
                 );
             return new JwtSecurityTokenHandler().WriteToken(userToken);
         }
+<<<<<<< HEAD
         public string GenerateRefreshToken()
         {
             return  Guid.NewGuid().ToString();
+=======
+<<<<<<< HEAD
+        public string GenerateRefreshToken()
+        {
+            return Guid.NewGuid().ToString();
+=======
+
+        public string GenerateRefreshToken(User user)
+        {
+            throw new NotImplementedException();
+>>>>>>> reviews
+>>>>>>> 9f7bd7411c370e2fcee6076d7a19d140eebbbb92
         }
     }
 }
