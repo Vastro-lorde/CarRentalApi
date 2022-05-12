@@ -34,6 +34,41 @@ namespace RentalCarCore.Controllers
         }
 
         [HttpPost]
+        [Route("Update-password")]
+        public async Task<IActionResult> UpdatePassword(UpdatePasswordDTO updatePasswordDto)
+        {
+            try
+            {
+
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                if (ModelState.IsValid)
+                {
+                    var result = await _authentication.UpdatePasswordAsync(updatePasswordDto);
+                    return Ok(result);
+                }
+
+                return BadRequest(ModelState);
+
+            }
+            /* catch (Exception ex)
+             {
+                 return new BadRequestObjectResult(ex.Message);
+
+             }*/
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+
+        }
+    
+
+
+        [HttpPost]
         [Route("ConfirmEmail")]
         public async Task<IActionResult> ConfirmEmailAsync([FromBody] ConfirmEmailRequestDTO confirmEmailRequestDTO)
         {
