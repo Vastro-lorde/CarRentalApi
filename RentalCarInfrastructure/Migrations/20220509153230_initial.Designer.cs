@@ -10,7 +10,11 @@ using RentalCarInfrastructure.Context;
 namespace RentalCarInfrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220508132216_initial")]
+<<<<<<<< HEAD:RentalCarInfrastructure/Migrations/20220511184121_initial.Designer.cs
+    [Migration("20220511184121_initial")]
+========
+    [Migration("20220509153230_initial")]
+>>>>>>>> reviews:RentalCarInfrastructure/Migrations/20220509153230_initial.Designer.cs
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -369,7 +373,7 @@ namespace RentalCarInfrastructure.Migrations
                     b.Property<DateTime>("ModifiedAt")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<string>("SociallMedia")
+                    b.Property<string>("SocialMedia")
                         .HasMaxLength(50)
                         .HasColumnType("character varying(50)");
 
@@ -508,6 +512,10 @@ namespace RentalCarInfrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("text");
 
+                    b.Property<string>("CarId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp without time zone");
 
@@ -521,15 +529,11 @@ namespace RentalCarInfrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("carId")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("CarId");
 
-                    b.HasIndex("carId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Ratings");
                 });
@@ -640,6 +644,9 @@ namespace RentalCarInfrastructure.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("boolean");
 
+                    b.Property<DateTime>("ExpiryTime")
+                        .HasColumnType("timestamp without time zone");
+
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -686,6 +693,9 @@ namespace RentalCarInfrastructure.Migrations
 
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("boolean");
+
+                    b.Property<string>("RefreshToken")
+                        .HasColumnType("text");
 
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("text");
@@ -846,15 +856,15 @@ namespace RentalCarInfrastructure.Migrations
 
             modelBuilder.Entity("RentalCarInfrastructure.Models.Rating", b =>
                 {
-                    b.HasOne("RentalCarInfrastructure.Models.User", null)
+                    b.HasOne("RentalCarInfrastructure.Models.Car", null)
                         .WithMany("Ratings")
-                        .HasForeignKey("UserId")
+                        .HasForeignKey("CarId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("RentalCarInfrastructure.Models.Car", null)
+                    b.HasOne("RentalCarInfrastructure.Models.User", null)
                         .WithMany("Ratings")
-                        .HasForeignKey("carId")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
