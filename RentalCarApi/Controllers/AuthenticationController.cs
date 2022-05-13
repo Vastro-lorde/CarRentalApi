@@ -1,10 +1,13 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RentalCarCore.Dtos;
 using RentalCarCore.Interfaces;
 using Serilog;
 using System;
 using System.Threading.Tasks;
+
+
 namespace RentalCarCore.Controllers
 {
 
@@ -61,7 +64,8 @@ namespace RentalCarCore.Controllers
             }
         }
 
-        [HttpPost]
+        [Authorize]
+        [HttpPatch]
         [Route("Update-password")]
         public async Task<IActionResult> UpdatePassword(UpdatePasswordDTO updatePasswordDto)
         {
