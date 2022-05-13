@@ -172,3 +172,154 @@ System.InvalidOperationException: Scheme already exists: Identity.Application
 2022-05-13 09:08:36.243 +01:00 [INF] Application starting up
 
 2022-05-13 11:48:09.411 +01:00 [INF] Application starting up
+2022-05-13 12:08:59.586 +01:00 [INF] Application starting up
+2022-05-13 12:09:00.612 +01:00 [FTL] The application failed to start correctly
+System.AggregateException: Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: RentalCarCore.Interfaces.IAuthentication Lifetime: Scoped ImplementationType: RentalCarCore.Services.Authentication': Unable to resolve service for type 'RentalCarCore.Interfaces.IConfirmationMailService' while attempting to activate 'RentalCarCore.Services.Authentication'.) (Error while validating the service descriptor 'ServiceType: RentalCarCore.Interfaces.IAuthentication Lifetime: Scoped ImplementationType: RentalCarCore.Services.Authentication': Unable to resolve service for type 'RentalCarCore.Interfaces.IConfirmationMailService' while attempting to activate 'RentalCarCore.Services.Authentication'.)
+ ---> System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: RentalCarCore.Interfaces.IAuthentication Lifetime: Scoped ImplementationType: RentalCarCore.Services.Authentication': Unable to resolve service for type 'RentalCarCore.Interfaces.IConfirmationMailService' while attempting to activate 'RentalCarCore.Services.Authentication'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'RentalCarCore.Interfaces.IConfirmationMailService' while attempting to activate 'RentalCarCore.Services.Authentication'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.DefaultServiceProviderFactory.CreateServiceProvider(IServiceCollection containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at RentalCarApi.Program.Main(String[] args) in /Users/mac/Projects/rentalcars-api/RentalCarApi/Program.cs:line 24
+ ---> (Inner Exception #1) System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: RentalCarCore.Interfaces.IAuthentication Lifetime: Scoped ImplementationType: RentalCarCore.Services.Authentication': Unable to resolve service for type 'RentalCarCore.Interfaces.IConfirmationMailService' while attempting to activate 'RentalCarCore.Services.Authentication'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'RentalCarCore.Interfaces.IConfirmationMailService' while attempting to activate 'RentalCarCore.Services.Authentication'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)<---
+
+2022-05-13 12:10:15.571 +01:00 [INF] Application starting up
+2022-05-13 12:10:16.571 +01:00 [FTL] The application failed to start correctly
+System.AggregateException: Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: RentalCarCore.Interfaces.IAuthentication Lifetime: Scoped ImplementationType: RentalCarCore.Services.Authentication': Unable to resolve service for type 'RentalCarCore.Interfaces.IConfirmationMailService' while attempting to activate 'RentalCarCore.Services.Authentication'.) (Error while validating the service descriptor 'ServiceType: RentalCarCore.Interfaces.IAuthentication Lifetime: Scoped ImplementationType: RentalCarCore.Services.Authentication': Unable to resolve service for type 'RentalCarCore.Interfaces.IConfirmationMailService' while attempting to activate 'RentalCarCore.Services.Authentication'.)
+ ---> System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: RentalCarCore.Interfaces.IAuthentication Lifetime: Scoped ImplementationType: RentalCarCore.Services.Authentication': Unable to resolve service for type 'RentalCarCore.Interfaces.IConfirmationMailService' while attempting to activate 'RentalCarCore.Services.Authentication'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'RentalCarCore.Interfaces.IConfirmationMailService' while attempting to activate 'RentalCarCore.Services.Authentication'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.DefaultServiceProviderFactory.CreateServiceProvider(IServiceCollection containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at RentalCarApi.Program.Main(String[] args) in /Users/mac/Projects/rentalcars-api/RentalCarApi/Program.cs:line 24
+ ---> (Inner Exception #1) System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: RentalCarCore.Interfaces.IAuthentication Lifetime: Scoped ImplementationType: RentalCarCore.Services.Authentication': Unable to resolve service for type 'RentalCarCore.Interfaces.IConfirmationMailService' while attempting to activate 'RentalCarCore.Services.Authentication'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'RentalCarCore.Interfaces.IConfirmationMailService' while attempting to activate 'RentalCarCore.Services.Authentication'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)<---
+
+2022-05-13 12:10:48.454 +01:00 [INF] Application starting up
+2022-05-13 12:10:49.401 +01:00 [FTL] The application failed to start correctly
+System.AggregateException: Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: RentalCarCore.Interfaces.IAuthentication Lifetime: Scoped ImplementationType: RentalCarCore.Services.Authentication': Unable to resolve service for type 'RentalCarCore.Interfaces.IConfirmationMailService' while attempting to activate 'RentalCarCore.Services.Authentication'.) (Error while validating the service descriptor 'ServiceType: RentalCarCore.Interfaces.IAuthentication Lifetime: Scoped ImplementationType: RentalCarCore.Services.Authentication': Unable to resolve service for type 'RentalCarCore.Interfaces.IConfirmationMailService' while attempting to activate 'RentalCarCore.Services.Authentication'.)
+ ---> System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: RentalCarCore.Interfaces.IAuthentication Lifetime: Scoped ImplementationType: RentalCarCore.Services.Authentication': Unable to resolve service for type 'RentalCarCore.Interfaces.IConfirmationMailService' while attempting to activate 'RentalCarCore.Services.Authentication'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'RentalCarCore.Interfaces.IConfirmationMailService' while attempting to activate 'RentalCarCore.Services.Authentication'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.DefaultServiceProviderFactory.CreateServiceProvider(IServiceCollection containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at RentalCarApi.Program.Main(String[] args) in /Users/mac/Projects/rentalcars-api/RentalCarApi/Program.cs:line 24
+ ---> (Inner Exception #1) System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: RentalCarCore.Interfaces.IAuthentication Lifetime: Scoped ImplementationType: RentalCarCore.Services.Authentication': Unable to resolve service for type 'RentalCarCore.Interfaces.IConfirmationMailService' while attempting to activate 'RentalCarCore.Services.Authentication'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'RentalCarCore.Interfaces.IConfirmationMailService' while attempting to activate 'RentalCarCore.Services.Authentication'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)<---
+
+2022-05-13 12:11:36.624 +01:00 [INF] Application starting up
+2022-05-13 12:11:37.617 +01:00 [FTL] The application failed to start correctly
+System.AggregateException: Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: RentalCarCore.Interfaces.IAuthentication Lifetime: Scoped ImplementationType: RentalCarCore.Services.Authentication': Unable to resolve service for type 'RentalCarCore.Interfaces.IConfirmationMailService' while attempting to activate 'RentalCarCore.Services.Authentication'.) (Error while validating the service descriptor 'ServiceType: RentalCarCore.Interfaces.IAuthentication Lifetime: Scoped ImplementationType: RentalCarCore.Services.Authentication': Unable to resolve service for type 'RentalCarCore.Interfaces.IConfirmationMailService' while attempting to activate 'RentalCarCore.Services.Authentication'.)
+ ---> System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: RentalCarCore.Interfaces.IAuthentication Lifetime: Scoped ImplementationType: RentalCarCore.Services.Authentication': Unable to resolve service for type 'RentalCarCore.Interfaces.IConfirmationMailService' while attempting to activate 'RentalCarCore.Services.Authentication'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'RentalCarCore.Interfaces.IConfirmationMailService' while attempting to activate 'RentalCarCore.Services.Authentication'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.DefaultServiceProviderFactory.CreateServiceProvider(IServiceCollection containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at RentalCarApi.Program.Main(String[] args) in /Users/mac/Projects/rentalcars-api/RentalCarApi/Program.cs:line 24
+ ---> (Inner Exception #1) System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: RentalCarCore.Interfaces.IAuthentication Lifetime: Scoped ImplementationType: RentalCarCore.Services.Authentication': Unable to resolve service for type 'RentalCarCore.Interfaces.IConfirmationMailService' while attempting to activate 'RentalCarCore.Services.Authentication'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'RentalCarCore.Interfaces.IConfirmationMailService' while attempting to activate 'RentalCarCore.Services.Authentication'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)<---
+
+2022-05-13 12:13:03.974 +01:00 [INF] Application starting up
+2022-05-13 12:13:44.664 +01:00 [INF] Application starting up
+2022-05-13 12:13:45.617 +01:00 [FTL] The application failed to start correctly
+System.AggregateException: Some services are not able to be constructed (Error while validating the service descriptor 'ServiceType: RentalCarCore.Interfaces.IAuthentication Lifetime: Scoped ImplementationType: RentalCarCore.Services.Authentication': Unable to resolve service for type 'RentalCarCore.Interfaces.IConfirmationMailService' while attempting to activate 'RentalCarCore.Services.Authentication'.)
+ ---> System.InvalidOperationException: Error while validating the service descriptor 'ServiceType: RentalCarCore.Interfaces.IAuthentication Lifetime: Scoped ImplementationType: RentalCarCore.Services.Authentication': Unable to resolve service for type 'RentalCarCore.Interfaces.IConfirmationMailService' while attempting to activate 'RentalCarCore.Services.Authentication'.
+ ---> System.InvalidOperationException: Unable to resolve service for type 'RentalCarCore.Interfaces.IConfirmationMailService' while attempting to activate 'RentalCarCore.Services.Authentication'.
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(Type serviceType, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, Type serviceType, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, Type serviceType, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceDescriptor serviceDescriptor, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngine.ValidateService(ServiceDescriptor descriptor)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   --- End of inner exception stack trace ---
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider..ctor(IEnumerable`1 serviceDescriptors, IServiceProviderEngine engine, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(IServiceCollection services, ServiceProviderOptions options)
+   at Microsoft.Extensions.DependencyInjection.DefaultServiceProviderFactory.CreateServiceProvider(IServiceCollection containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at RentalCarApi.Program.Main(String[] args) in /Users/mac/Projects/rentalcars-api/RentalCarApi/Program.cs:line 24
+2022-05-13 12:16:37.632 +01:00 [INF] Application starting up
