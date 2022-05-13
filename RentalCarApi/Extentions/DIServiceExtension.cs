@@ -16,18 +16,10 @@ using RentalCarInfrastructure.Repositories.Interfaces;
 
 namespace RentalCarApi.Extentions
 {
-    public static class DIContainerConfiguration
+    public static class DIServiceExtension
     {
-        public static void RegisterDI(this IServiceCollection services, IConfiguration config)
+        public static void AddDependencyInjection(this IServiceCollection services)
         {
-            services.AddIdentity<User, IdentityRole>(x =>
-            {
-                x.SignIn.RequireConfirmedEmail = true;
-                x.Password.RequireUppercase = true;
-                x.Password.RequireDigit = true;
-                x.Password.RequiredUniqueChars = 1;
-                x.Password.RequiredLength = 5;
-            }).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
             
             services.AddScoped<IMailService, MailService>();
             services.AddScoped<IImageService, ImageService>();

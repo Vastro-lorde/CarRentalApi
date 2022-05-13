@@ -14,20 +14,10 @@ namespace RentalCarInfrastructure.Models
         [StringLength(50, MinimumLength = 2, ErrorMessage = DataAnnotationsHelper.FirstNameValidator)]
         [Required]
         public string FirstName { get; set; }
+
         [StringLength(50, MinimumLength = 2, ErrorMessage = DataAnnotationsHelper.LastNameValidator)]
         [Required]
         public string LastName { get; set; }
-        [StringLength(50, MinimumLength = 2, ErrorMessage = DataAnnotationsHelper.PasswordValidator)]
-        [Required]
-        public string Password { get; set; }
-
-        [StringLength(125, MinimumLength = 10, ErrorMessage = DataAnnotationsHelper.EmailValidator)]
-        [Required]
-        override public string Email { get; set; }
-
-        [StringLength(50, MinimumLength = 11, ErrorMessage = DataAnnotationsHelper.PhoneNumberValidator)]
-        [Required]
-        override public string PhoneNumber { get; set; }
 
         [StringLength(250, MinimumLength = 5, ErrorMessage = DataAnnotationsHelper.EmailValidator)]
         public string Address { get; set; }
