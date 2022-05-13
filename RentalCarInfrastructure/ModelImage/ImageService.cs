@@ -5,9 +5,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace RentalCarInfrastructure.ModelImage
 {
@@ -28,27 +27,19 @@ namespace RentalCarInfrastructure.ModelImage
 
         public async Task<UploadResult> UploadAsync(IFormFile image)
         {
-            var pictureSize = Convert.ToInt64(_configuration.GetSection("PhotoSettings:Size").Get<string>());
+            var pictureSize = Convert.ToInt64(_configuration.GetSection(ImageServiceFeedBacks.photoSettings).Get<string>());
             if (image.Length > pictureSize)
             {
-                throw new ArgumentException("File size exceeded");
-            }
-            var pictureFormat = false;
-            var listOfImageExtensions = _configuration.GetSection("PhotoSettings:Formats").Get<List<string>>();
-            foreach (var item in listOfImageExtensions)
-            {
-                if (image.FileName.EndsWith(item))
-                {
-                    pictureFormat = true;
-                    break;
-                }
+                throw new ArgumentException(ImageServiceFeedBacks.sizeExceeded);
             }
 
-            if (pictureFormat == false)
-            {
-                throw new ArgumentException("File format not supported");
-            }
+            var listOfImageExtensions = _configuration.GetSection(ImageServiceFeedBacks.photoFormat).Get<List<string>>();
 
+            if(listOfImageExtensions.Any(x => !image.FileName.EndsWith(x)))
+            {
+                throw new ArgumentException(ImageServiceFeedBacks.unsupportedFormat);
+            }
+           
             var uploadResult = new ImageUploadResult();
 
             //fetch the image using image stream
@@ -58,11 +49,10 @@ namespace RentalCarInfrastructure.ModelImage
                 uploadResult = await cloudinary.UploadAsync(new ImageUploadParams()
                 {
                     File = new FileDescription(fileName, imageStream),
-                    Transformation = new Transformation().Crop("thumb").Gravity("face").Width(1000).Height(1000).Radius(40)
+                    Transformation = new Transformation().Crop(ImageServiceFeedBacks.crop).Gravity(ImageServiceFeedBacks.gravity).Width(1000).Height(1000).Radius(40)
                 });
             }
             return uploadResult;
         }
-
     }
 }
