@@ -67,5 +67,4 @@ namespace RentalCarInfrastructure.Repositories.Implementations
             return await _dbContext.SaveChangesAsync() > 0;
         }
     }
-
 }

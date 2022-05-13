@@ -1,10 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using RentalCarInfrastructure.Context;
 using RentalCarInfrastructure.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace RentalCarInfrastructure.Seeder
@@ -17,6 +15,7 @@ namespace RentalCarInfrastructure.Seeder
             Dealer = 2,
             Customer = 3,
         }
+
         public class Seeder
         {
             public async static Task Seed(RoleManager<IdentityRole> roleManager, UserManager<User> userManager, AppDbContext dbContext)
@@ -78,6 +77,7 @@ namespace RentalCarInfrastructure.Seeder
                     }
                 }
             }
+
             private static async Task SeedDealers(UserManager<User> userManager, AppDbContext dbContext)
             {
                 if (!dbContext.Dealers.Any())
