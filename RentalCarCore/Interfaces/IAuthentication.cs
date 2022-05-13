@@ -6,5 +6,6 @@ namespace RentalCarCore.Interfaces
     public interface IAuthentication
     {
         Task<Response<UserResponseDto>> Login(UserRequestDto userRequestDto);
+        Task<UserResponseDto> RegisterAsync(RegistrationDto registrationRequest);
     }
 }

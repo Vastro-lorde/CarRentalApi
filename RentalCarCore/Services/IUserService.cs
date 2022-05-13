@@ -1,7 +1,9 @@
-﻿namespace RentalCarCore.Services
+﻿using RentalCarCore.Dtos;
+
+namespace RentalCarCore.Services
 {
     public interface IUserService
     {
-        System.Threading.Tasks.Task<UserResponseDto> RegisterAsync(UserRegistrationRequestDTO registrationRequest);
+        System.Threading.Tasks.Task<UserResponseDto> RegisterAsync(RegistrationDto registrationRequest);
     }
 }

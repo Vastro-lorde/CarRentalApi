@@ -21,6 +21,12 @@ namespace RentalCarCore.Services
             _mapper = mapper;
             _tokenGen = tokenGen;
         }
+
+        public Task CreateUser(RegistrationDto userRequest)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<Response<UserResponseDto>> Login(UserRequestDto userRequestDto)
         {
             User user = await _userManager.FindByEmailAsync(userRequestDto.Email);
@@ -53,5 +59,29 @@ namespace RentalCarCore.Services
             }
             throw new AccessViolationException("Invalid Credentails");
         }
+
+        public async Task<UserResponseDto> RegisterAsync(RegistrationDto registrationRequest)
+        {
+            User user = _mapper.Map<User>(registrationRequest);
+            user.UserName = registrationRequest.Email;
+            IdentityResult result = await _userManager.CreateAsync(user, registrationRequest.Password);
+            if (result.Succeeded)
+            {
+                var emailToken = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                var response = _mapper.Map<RegistrationDto>(user);
+                var answer = new UserResponseDto
+                {
+                    Id = user.Id,
+                    Token = emailToken,
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    Email = user.Email,
+                };
+                return answer;
+            }
+            string errors = result.Errors.Aggregate(string.Empty, (current, error) => current + (error.Description + Environment.NewLine));
+            throw new ArgumentException(errors);
+        }
+
     }
 }
