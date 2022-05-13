@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 namespace RentalCarCore.Controllers
 {
 
-
+    [ApiController]
+    [Route("api/[controller]")]
     public class AuthenticationController : ControllerBase
     {
         private readonly IAuthentication _authentication;
@@ -17,7 +18,8 @@ namespace RentalCarCore.Controllers
             _authentication = authentication;
         }
 
-        [HttpPost("login")]
+        [HttpPost]
+        [Route("login")]
         public async Task<IActionResult> Login([FromBody] UserRequestDto userRequest)
         {
             try
@@ -35,7 +37,8 @@ namespace RentalCarCore.Controllers
         }
 
 
-        [HttpPost("Register")]
+        [HttpPost]
+        [Route("register")]
         public async Task<ActionResult> CreateUserAsync(RegistrationDto userRequest)
         {
             try
@@ -150,7 +153,8 @@ namespace RentalCarCore.Controllers
             }
         }
 
-        [HttpPost("ResetPassword")]
+        [HttpPost]
+        [Route("ResetPassword")]
         public async Task<IActionResult> ResetPassword(ResetPasswordDto resetPassword)
         {
             try
@@ -167,7 +171,8 @@ namespace RentalCarCore.Controllers
             }
         }
 
-        [HttpPost("ForgotPassword")]
+        [HttpPost]
+        [Route("ForgotPassword")]
         public async Task<IActionResult> ForgotPasswordReset(ForgotPasswordDto forgotPasswordDto)
         {
             try
