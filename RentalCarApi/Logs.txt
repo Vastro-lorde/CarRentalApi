@@ -169,4 +169,5 @@ System.InvalidOperationException: Scheme already exists: Identity.Application
    at RentalCarApi.Program.Main(String[] args) in C:\Users\hp\Desktop\rentalcars-api\RentalCarApi\Program.cs:line 24
 2022-05-13 08:42:06.163 +01:00 [INF] Application starting up
 2022-05-13 09:03:06.338 +01:00 [INF] Application starting up
+2022-05-13 09:08:36.243 +01:00 [INF] Application starting up
 

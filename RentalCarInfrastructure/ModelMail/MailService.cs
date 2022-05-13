@@ -51,5 +51,12 @@ namespace RentalCarInfrastructure.ModelMail
             await smtp.SendAsync(email);
             smtp.Disconnect(true);
         }
+        public string GetEmailTemplate(string templateName)
+        {
+            var baseDir = Directory.GetCurrentDirectory();
+            string folderName = "/HtmlTemplate/";
+            var path = Path.Combine(baseDir + folderName, templateName);
+            return File.ReadAllText(path);
+        }
     }
 }
