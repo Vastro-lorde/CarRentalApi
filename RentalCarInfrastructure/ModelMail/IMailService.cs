@@ -9,5 +9,6 @@ namespace RentalCarInfrastructure.ModelMail
     public interface IMailService
     {
         Task SendEmailAsync(MailRequest mailRequest);
+        string GetEmailTemplate(string templateName);
     }
 }
