@@ -40,22 +40,30 @@ namespace RentalCarCore.Services
             {
                 if (await _userManager.CheckPasswordAsync(user, userRequestDto.Password))
                 {
-                    var response = _mapper.Map<UserResponseDto>(user);
-                    response.Token = _tokenGen.GenerateToken(user);
-                    user.RefreshToken = _tokenGen.GenerateRefreshToken();
+
+                    string RefreshToken = _tokenGen.GenerateRefreshToken();
+                    user.RefreshToken = RefreshToken;
                     user.ExpiryTime = DateTime.Now.AddDays(3);
+
+                    var result = new UserResponseDto()
+                    {
+                        Id = user.Id,
+                        Token = _tokenGen.GenerateToken(user),
+                        RefreshToken = RefreshToken
+                    };
+
                     return new Response<UserResponseDto>
                     {
-                        Data = response,
+                        Data = result,
                         Message = MessageResponse.SuccessMessage,
-                        ResponseCode = System.Net.HttpStatusCode.OK,
+                        ResponseCode = HttpStatusCode.OK,
                         IsSuccessful = true
                     };
                 }
                 return new Response<UserResponseDto>
                 {
                     Message = MessageResponse.FailedMessage,
-                    ResponseCode = System.Net.HttpStatusCode.BadRequest,
+                    ResponseCode = HttpStatusCode.BadRequest,
                     IsSuccessful = false,
                 };
             }
@@ -74,9 +82,7 @@ namespace RentalCarCore.Services
                 {
                     Id = user.Id,
                     Token = emailToken,
-                    FirstName = user.FirstName,
-                    LastName = user.LastName,
-                    Email = user.Email,
+                   
                 };
                 return answer;
             }
@@ -209,8 +215,7 @@ namespace RentalCarCore.Services
                 response.IsSuccessful = false;
                 return response;
             }
-            userResponse.FirstName = user.FirstName;
-            userResponse.LastName = user.LastName;
+            
             userResponse.Token = await _userManager.GeneratePasswordResetTokenAsync(user);
             await _confirmationMailService.SendAConfirmationEmailForResetPassword(userResponse);
             response.IsSuccessful = true;

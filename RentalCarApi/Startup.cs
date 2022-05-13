@@ -35,8 +35,14 @@ namespace RentalCarApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.RegisterDI(Configuration);
+            // Add Jwt Authentication and Authorization
             services.ConfigureAuthentication(Configuration);
+
+            // Configure Identity
+            services.ConfigureIdentity();
+
+            // Register Dependency Injection Service Extension
+            services.AddDependencyInjection();
 
             services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
             services.Configure<ImageUploadSettings>(Configuration.GetSection("ImageUploadSettings"));

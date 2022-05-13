@@ -55,7 +55,7 @@ namespace RentalCarInfrastructure.Seeder
                         if(count == 1)
                         {
                             user.EmailConfirmed = true;
-                            var result = await userManager.CreateAsync(user, "Ja@12");
+                            var result = await userManager.CreateAsync(user, "Ja@125");
                             if (result.Succeeded)
                             {
                                 await userManager.AddToRoleAsync(user, UserRoles.Admin.ToString());
@@ -64,13 +64,13 @@ namespace RentalCarInfrastructure.Seeder
                         else if(count < 6)
                         {
                             user.EmailConfirmed = true;
-                            await userManager.CreateAsync(user, "Ja@12");
+                            await userManager.CreateAsync(user, "Ja@124");
                             await userManager.AddToRoleAsync(user, UserRoles.Dealer.ToString());
                         }
                         else
                         {
                             user.EmailConfirmed = true;
-                            await userManager.CreateAsync(user, "Ja@12");
+                            await userManager.CreateAsync(user, "Ja@123");
                             await userManager.AddToRoleAsync(user, UserRoles.Customer.ToString());
                         }
                         count++;
