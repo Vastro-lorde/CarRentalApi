@@ -33,6 +33,30 @@ namespace RentalCarCore.Controllers
             }
         }
 
+
+        [HttpPost]
+        public async Task<ActionResult> CreateUserAsync(RegistrationDto userRequest)
+        {
+            try
+            {
+                if (!TryValidateModel(userRequest))
+                {
+                    return BadRequest();
+                }
+                await _authentication.RegisterAsync((userRequest));
+                return Ok();
+            }
+            catch (ArgumentException argex)
+            {
+                return BadRequest(argex.Message);
+            }
+            catch (Exception ex)
+            {
+                Log.Logger.Error(ex.Message);
+                return StatusCode(500, "An error occured we are working on it");
+            }
+        }
+
         [HttpPost]
         [Route("Update-password")]
         public async Task<IActionResult> UpdatePassword(UpdatePasswordDTO updatePasswordDto)
@@ -65,7 +89,7 @@ namespace RentalCarCore.Controllers
             }
 
         }
-    
+
 
 
         [HttpPost]
@@ -124,7 +148,7 @@ namespace RentalCarCore.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, "An error occured we are working on it");
             }
         }
-        
+
         [HttpPost("ResetPassword")]
         public async Task<IActionResult> ResetPassword(ResetPasswordDto resetPassword)
         {
@@ -160,3 +184,6 @@ namespace RentalCarCore.Controllers
         }
     }
 }
+    
+
+       
