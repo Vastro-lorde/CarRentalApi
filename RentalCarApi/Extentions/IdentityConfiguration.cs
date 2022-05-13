@@ -28,10 +28,9 @@ namespace RentalCarApi.Extentions
                 x.Password.RequiredUniqueChars = 1;
                 x.Password.RequiredLength = 5;
             }).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
-            services.Configure<MailSettings>(config.GetSection("MailSettings"));
+            
             services.AddScoped<IMailService, MailService>();
             services.AddScoped<IImageService, ImageService>();
-            services.Configure<ImageUploadSettings>(config.GetSection("ImageUploadSettings"));
             services.AddScoped<IAuthentication, Authentication>();
             services.AddScoped<ITokenGen, TokenGen>();
             services.AddAutoMapper(typeof(UserMappings));

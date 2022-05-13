@@ -36,27 +36,14 @@ namespace RentalCarApi
         {
 
             services.AddSwaggerConfiguration();
-         //   services.AddCorsConfiguration();
             services.AddControllers();
-         //   services.RegisterDbContext(Configuration);
             services.RegisterIdentityUser(Configuration);
             services.ConfigureAuthentication(Configuration);
 
             services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
-            services.AddScoped<IMailService, MailService>();
-            services.AddScoped<IImageService, ImageService>();
-            services.AddScoped<IConfirmationMailService, ConfirmationMailService>();
             services.Configure<ImageUploadSettings>(Configuration.GetSection("ImageUploadSettings"));
-            services.AddSwaggerConfiguration();
-            services.AddControllers();
-            services.RegisterIdentityUser(Configuration);
-            services.ConfigureAuthentication(Configuration);
-
-            services.AddControllers();
-            services.AddControllersWithViews();
             services.AddAutoMapper(typeof(Startup));
             services.AddDbContextAndConfigurations(Environment, Configuration);
-            //services.RegisterIdentityUser(Configuration);
             services.ConfigureCors();
         }
 

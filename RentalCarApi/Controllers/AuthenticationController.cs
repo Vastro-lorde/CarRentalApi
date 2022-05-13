@@ -16,6 +16,7 @@ namespace RentalCarCore.Controllers
         {
             _authentication = authentication;
         }
+
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] UserRequestDto userRequest)
         {
@@ -34,7 +35,7 @@ namespace RentalCarCore.Controllers
         }
 
 
-        [HttpPost]
+        [HttpPost("Register")]
         public async Task<ActionResult> CreateUserAsync(RegistrationDto userRequest)
         {
             try
