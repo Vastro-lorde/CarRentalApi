@@ -7,6 +7,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using RentalCarApi.Extentions;
 using RentalCarApi.Middlewares;
+using RentalCarCore.Interfaces;
+using RentalCarCore.Services;
 using RentalCarInfrastructure.Context;
 using RentalCarInfrastructure.ModelImage;
 using RentalCarInfrastructure.ModelMail;
@@ -34,6 +36,7 @@ namespace RentalCarApi
             services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
             services.AddScoped<IMailService, MailService>();
             services.AddScoped<IImageService, ImageService>();
+            services.AddScoped<IConfirmationMailService, ConfirmationMailService>();
             services.Configure<ImageUploadSettings>(Configuration.GetSection("ImageUploadSettings"));
             services.AddSwaggerConfiguration();
             services.AddControllers();
@@ -44,7 +47,7 @@ namespace RentalCarApi
             services.AddControllersWithViews();
             services.AddAutoMapper(typeof(Startup));
             services.AddDbContextAndConfigurations(Environment, Configuration);
-            services.RegisterIdentityUser(Configuration);
+            //services.RegisterIdentityUser(Configuration);
             services.ConfigureCors();
         }
 

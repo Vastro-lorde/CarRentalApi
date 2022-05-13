@@ -124,5 +124,39 @@ namespace RentalCarCore.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, "An error occured we are working on it");
             }
         }
+        
+        [HttpPost("ResetPassword")]
+        public async Task<IActionResult> ResetPassword(ResetPasswordDto resetPassword)
+        {
+            try
+            {
+                return Ok(await _authentication.ResetPasswordAsync(resetPassword));
+            }
+            catch (AccessViolationException)
+            {
+                return BadRequest();
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+        }
+
+        [HttpPost("ForgotPassword")]
+        public async Task<IActionResult> ForgotPasswordReset(ForgotPasswordDto forgotPasswordDto)
+        {
+            try
+            {
+                return Ok(await _authentication.ForgotPasswordResetAsync(forgotPasswordDto));
+            }
+            catch (AccessViolationException)
+            {
+                return BadRequest();
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+        }
     }
 }
