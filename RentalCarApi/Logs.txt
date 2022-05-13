@@ -82,3 +82,5 @@ System.AggregateException: Some services are not able to be constructed (Error w
 2022-05-12 12:40:27.852 +01:00 [INF] Application starting up
 2022-05-12 15:51:32.995 +01:00 [INF] Application starting up
 >>>>>>> 5f54b03cdce47f9278fd7b6200cff4c47f341b09
+2022-05-13 02:32:40.916 +01:00 [INF] Application starting up
+2022-05-13 08:24:32.967 +01:00 [INF] Application starting up
