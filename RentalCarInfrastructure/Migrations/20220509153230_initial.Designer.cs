@@ -9,12 +9,8 @@ using RentalCarInfrastructure.Context;
 
 namespace RentalCarInfrastructure.Migrations
 {
-    [DbContext(typeof(AppDbContext))]
-<<<<<<<< HEAD:RentalCarInfrastructure/Migrations/20220511184121_initial.Designer.cs
-    [Migration("20220511184121_initial")]
-========
-    [Migration("20220509153230_initial")]
->>>>>>>> reviews:RentalCarInfrastructure/Migrations/20220509153230_initial.Designer.cs
+    //[DbContext(typeof(AppDbContext))]
+    //[Migration("20220511184121_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.OpenApi.Models;
 using RentalCarApi.Extentions;
 using RentalCarCore.Interfaces;
 using RentalCarCore.Services;
@@ -35,6 +34,7 @@ namespace RentalCarApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
             services.AddSwaggerConfiguration();
          //   services.AddCorsConfiguration();
             services.AddControllers();
@@ -42,23 +42,21 @@ namespace RentalCarApi
             services.RegisterIdentityUser(Configuration);
             services.ConfigureAuthentication(Configuration);
 
+            services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
             services.AddScoped<IMailService, MailService>();
             services.AddScoped<IImageService, ImageService>();
-            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-
+            services.AddScoped<IConfirmationMailService, ConfirmationMailService>();
+            services.Configure<ImageUploadSettings>(Configuration.GetSection("ImageUploadSettings"));
             services.AddSwaggerConfiguration();
             services.AddControllers();
-            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-
-            services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
-            services.Configure<ImageUploadSettings>(Configuration.GetSection("ImageUploadSettings"));
+            services.RegisterIdentityUser(Configuration);
             services.ConfigureAuthentication(Configuration);
 
-
-
+            services.AddControllers();
+            services.AddControllersWithViews();
             services.AddAutoMapper(typeof(Startup));
             services.AddDbContextAndConfigurations(Environment, Configuration);
-            services.RegisterIdentityUser(Configuration);
+            //services.RegisterIdentityUser(Configuration);
             services.ConfigureCors();
         }
 
@@ -80,7 +78,7 @@ namespace RentalCarApi
                 c.RoutePrefix = string.Empty;
             });
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseCors("CorsPolicy");
 
