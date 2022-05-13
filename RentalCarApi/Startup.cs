@@ -34,10 +34,8 @@ namespace RentalCarApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
-            services.AddSwaggerConfiguration();
             services.AddControllers();
-            services.RegisterIdentityUser(Configuration);
+            services.RegisterDI(Configuration);
             services.ConfigureAuthentication(Configuration);
 
             services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
@@ -45,6 +43,7 @@ namespace RentalCarApi
             services.AddAutoMapper(typeof(Startup));
             services.AddDbContextAndConfigurations(Environment, Configuration);
             services.ConfigureCors();
+            services.AddSwaggerConfiguration();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

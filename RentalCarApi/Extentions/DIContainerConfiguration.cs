@@ -16,9 +16,9 @@ using RentalCarInfrastructure.Repositories.Interfaces;
 
 namespace RentalCarApi.Extentions
 {
-    public static class IdentityConfiguration
+    public static class DIContainerConfiguration
     {
-        public static void RegisterIdentityUser(this IServiceCollection services, IConfiguration config)
+        public static void RegisterDI(this IServiceCollection services, IConfiguration config)
         {
             services.AddIdentity<User, IdentityRole>(x =>
             {
