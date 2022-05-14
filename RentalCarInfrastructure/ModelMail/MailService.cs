@@ -54,7 +54,7 @@ namespace RentalCarInfrastructure.ModelMail
         public string GetEmailTemplate(string templateName)
         {
             var baseDir = Directory.GetCurrentDirectory();
-            string folderName = "/HtmlTemplate/";
+            string folderName = "/StaticFiles/";
             var path = Path.Combine(baseDir + folderName, templateName);
             return File.ReadAllText(path);
         }
