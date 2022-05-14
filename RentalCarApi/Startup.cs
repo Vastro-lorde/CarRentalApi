@@ -17,6 +17,7 @@ using RentalCarInfrastructure.Models;
 using RentalCarInfrastructure.Repositories.Implementations;
 using RentalCarInfrastructure.Repositories.Interfaces;
 using static RentalCarInfrastructure.Seeder.Seeders;
+using RentalCarCore.Dtos.Mapping;
 
 namespace RentalCarApi
 {
@@ -46,7 +47,7 @@ namespace RentalCarApi
 
             services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
             services.Configure<ImageUploadSettings>(Configuration.GetSection("ImageUploadSettings"));
-            services.AddAutoMapper(typeof(Startup));
+            services.AddAutoMapper(typeof(UserMappings));
             services.AddDbContextAndConfigurations(Environment, Configuration);
             services.ConfigureCors();
             services.AddSwaggerConfiguration();

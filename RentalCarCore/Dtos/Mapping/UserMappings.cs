@@ -13,6 +13,7 @@ namespace RentalCarCore.Dtos.Mapping
         public UserMappings()
         {
             CreateMap<User, UserResponseDto>().ReverseMap();
+            CreateMap<RegistrationDto, User>().ReverseMap();
         }
     }
 }

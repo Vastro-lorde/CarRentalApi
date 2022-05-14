@@ -40,7 +40,9 @@ namespace RentalCarCore.Dtos
         public string PhoneNumber { get; set; }
         [Required]
         public string Gender { get; set; }
-       
+        [Required]
+        [DataType(DataType.Text)]
+        public string Address { get; set; }
     }
 }
 

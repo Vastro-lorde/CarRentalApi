@@ -208,6 +208,7 @@ namespace RentalCarCore.Services
         public async Task<Response<string>> ForgotPasswordResetAsync(ForgotPasswordDto forgotPasswordDto)
         {
             var user = await _userManager.FindByEmailAsync(forgotPasswordDto.Email);
+            var userResponse = _mapper.Map<UserResponseDto>(user);
             var response = new Response<string>
             {
                 IsSuccessful = false,
@@ -218,15 +219,9 @@ namespace RentalCarCore.Services
                 response.IsSuccessful = false;
                 return response;
             }
-
-            var result = new UserResponseDto()
-            {
-                Email = user.Email,
-                FirstName = user.FirstName,
-                Token = await _userManager.GeneratePasswordResetTokenAsync(user)
-            };
-            
-            await _confirmationMailService.SendAConfirmationEmailForResetPassword(result);
+            userResponse.FirstName = user.FirstName;
+            userResponse.Token = await _userManager.GeneratePasswordResetTokenAsync(user);
+            await _confirmationMailService.SendAConfirmationEmailForResetPassword(userResponse);
             response.IsSuccessful = true;
             return response;
         }
