@@ -41,17 +41,20 @@ namespace RentalCarCore.Services
                 if (await _userManager.CheckPasswordAsync(user, userRequestDto.Password))
                 {
 
-                    string RefreshToken = _tokenGen.GenerateRefreshToken();
-                    user.RefreshToken = RefreshToken;
+                    string refreshToken = _tokenGen.GenerateRefreshToken();
+                    string token = _tokenGen.GenerateToken(user);
+                    user.RefreshToken = refreshToken;
                     user.ExpiryTime = DateTime.Now.AddDays(3);
 
                     var result = new UserResponseDto()
                     {
                         Id = user.Id,
-                        Token = _tokenGen.GenerateToken(user),
-                        RefreshToken = RefreshToken
+                        Token = token,
+                        RefreshToken = refreshToken
                     };
 
+
+                    await _userManager.UpdateAsync(user);
                     return new Response<UserResponseDto>
                     {
                         Data = result,
@@ -69,6 +72,7 @@ namespace RentalCarCore.Services
             }
             throw new AccessViolationException("Invalid Credentails");
         }
+
         public async Task<UserResponseDto> RegisterAsync(RegistrationDto registrationRequest)
         {
             User user = _mapper.Map<User>(registrationRequest);
@@ -204,7 +208,6 @@ namespace RentalCarCore.Services
         public async Task<Response<string>> ForgotPasswordResetAsync(ForgotPasswordDto forgotPasswordDto)
         {
             var user = await _userManager.FindByEmailAsync(forgotPasswordDto.Email);
-            var userResponse = _mapper.Map<UserResponseDto>(user);
             var response = new Response<string>
             {
                 IsSuccessful = false,
@@ -215,9 +218,15 @@ namespace RentalCarCore.Services
                 response.IsSuccessful = false;
                 return response;
             }
+
+            var result = new UserResponseDto()
+            {
+                Email = user.Email,
+                FirstName = user.FirstName,
+                Token = await _userManager.GeneratePasswordResetTokenAsync(user)
+            };
             
-            userResponse.Token = await _userManager.GeneratePasswordResetTokenAsync(user);
-            await _confirmationMailService.SendAConfirmationEmailForResetPassword(userResponse);
+            await _confirmationMailService.SendAConfirmationEmailForResetPassword(result);
             response.IsSuccessful = true;
             return response;
         }
