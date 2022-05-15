@@ -9,10 +9,8 @@ using System.Threading.Tasks;
 
 namespace RentalCarCore.Dtos.Request
 {
-    public class UpdatePasswordDTO //: IdentityUser
+    public class UpdatePasswordDTO 
     {
-        [Required]
-        public string Id { get; set; }
 
         [Required]
         public string CurrentPassword { get; set; }
