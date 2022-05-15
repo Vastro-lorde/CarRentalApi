@@ -47,8 +47,9 @@ namespace RentalCarApi
 
             services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
             services.Configure<ImageUploadSettings>(Configuration.GetSection("ImageUploadSettings"));
-            services.AddAutoMapper(typeof(UserMappings));
+            //services.AddCustomConfiguredAutoMapper();
             services.AddDbContextAndConfigurations(Environment, Configuration);
+            services.AddAutoMapper(typeof(UserMappings));
             services.ConfigureCors();
             services.AddSwaggerConfiguration();
         }

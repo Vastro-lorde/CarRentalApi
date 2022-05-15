@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using RentalCarInfrastructure.Models;
+using RentalCarCore.Dtos.Response;
+using RentalCarCore.Dtos.Request;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +16,8 @@ namespace RentalCarCore.Dtos.Mapping
         {
             CreateMap<User, UserResponseDto>().ReverseMap();
             CreateMap<RegistrationDto, User>().ReverseMap();
+            CreateMap<Trip, TripsDTO>().ReverseMap()
+             .ForMember(x => x.Transactions, y => y.MapFrom(s => s.Transactions));
         }
     }
 }

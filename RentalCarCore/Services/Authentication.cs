@@ -1,7 +1,8 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
-using RentalCarCore.Dtos;
+using RentalCarCore.Dtos.Response;
+using RentalCarCore.Dtos.Request;
 using RentalCarCore.Interfaces;
 using RentalCarCore.Utilities;
 using RentalCarInfrastructure.Models;

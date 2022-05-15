@@ -5,13 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RentalCarCore.Dtos
+namespace RentalCarCore.Dtos.Request
 {
-    public class UserRequestDto
+    public class ConfirmEmailRequestDTO
     {
         [Required]
         public string Email { get; set; }
         [Required]
-        public string Password { get; set; }
+        public string Token { get; set; }
     }
 }
