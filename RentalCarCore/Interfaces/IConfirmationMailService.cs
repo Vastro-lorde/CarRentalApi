@@ -9,6 +9,6 @@ namespace RentalCarCore.Interfaces
 {
     public interface IConfirmationMailService
     {
-        Task SendAConfirmationEmailForResetPassword(UserResponseDto user);
+        Task SendAConfirmationEmail(UserResponseDto user, string templatefile);
     }
 }

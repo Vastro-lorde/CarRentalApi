@@ -80,14 +80,20 @@ namespace RentalCarCore.Services
             IdentityResult result = await _userManager.CreateAsync(user, registrationRequest.Password);
             if (result.Succeeded)
             {
+                // assign user to the customer role
+                await _userManager.AddToRoleAsync(user, "Customer");
+
                 var emailToken = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                 var response = _mapper.Map<RegistrationDto>(user);
                 var answer = new UserResponseDto
                 {
                     Id = user.Id,
+                    Email = user.Email,
                     Token = emailToken,
+                    FirstName = user.FirstName
                    
                 };
+                await _confirmationMailService.SendAConfirmationEmail(answer, "ConfirmEmail.html");
                 return answer;
             }
             string errors = result.Errors.Aggregate(string.Empty, (current, error) => current + (error.Description + Environment.NewLine));
@@ -221,7 +227,7 @@ namespace RentalCarCore.Services
             }
             userResponse.FirstName = user.FirstName;
             userResponse.Token = await _userManager.GeneratePasswordResetTokenAsync(user);
-            await _confirmationMailService.SendAConfirmationEmailForResetPassword(userResponse);
+            await _confirmationMailService.SendAConfirmationEmail(userResponse, "ForgotPassword.html");
             response.IsSuccessful = true;
             return response;
         }
