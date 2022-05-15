@@ -17,6 +17,7 @@ using RentalCarInfrastructure.Models;
 using RentalCarInfrastructure.Repositories.Implementations;
 using RentalCarInfrastructure.Repositories.Interfaces;
 using static RentalCarInfrastructure.Seeder.Seeders;
+using RentalCarCore.Dtos.Mapping;
 
 namespace RentalCarApi
 {
@@ -34,30 +35,22 @@ namespace RentalCarApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
-            services.AddSwaggerConfiguration();
-         //   services.AddCorsConfiguration();
             services.AddControllers();
-         //   services.RegisterDbContext(Configuration);
-            services.RegisterIdentityUser(Configuration);
+            // Add Jwt Authentication and Authorization
             services.ConfigureAuthentication(Configuration);
+
+            // Configure Identity
+            services.ConfigureIdentity();
+
+            // Register Dependency Injection Service Extension
+            services.AddDependencyInjection();
 
             services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
-            services.AddScoped<IMailService, MailService>();
-            services.AddScoped<IImageService, ImageService>();
-            services.AddScoped<IConfirmationMailService, ConfirmationMailService>();
             services.Configure<ImageUploadSettings>(Configuration.GetSection("ImageUploadSettings"));
-            services.AddSwaggerConfiguration();
-            services.AddControllers();
-            services.RegisterIdentityUser(Configuration);
-            services.ConfigureAuthentication(Configuration);
-
-            services.AddControllers();
-            services.AddControllersWithViews();
-            services.AddAutoMapper(typeof(Startup));
+            services.AddAutoMapper(typeof(UserMappings));
             services.AddDbContextAndConfigurations(Environment, Configuration);
-            //services.RegisterIdentityUser(Configuration);
             services.ConfigureCors();
+            services.AddSwaggerConfiguration();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

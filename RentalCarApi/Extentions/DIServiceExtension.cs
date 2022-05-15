@@ -16,28 +16,19 @@ using RentalCarInfrastructure.Repositories.Interfaces;
 
 namespace RentalCarApi.Extentions
 {
-    public static class IdentityConfiguration
+    public static class DIServiceExtension
     {
-        public static void RegisterIdentityUser(this IServiceCollection services, IConfiguration config)
+        public static void AddDependencyInjection(this IServiceCollection services)
         {
-            services.AddIdentity<User, IdentityRole>(x =>
-            {
-                x.SignIn.RequireConfirmedEmail = true;
-                x.Password.RequireUppercase = true;
-                x.Password.RequireDigit = true;
-                x.Password.RequiredUniqueChars = 1;
-                x.Password.RequiredLength = 5;
-            }).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
-            services.Configure<MailSettings>(config.GetSection("MailSettings"));
+            
             services.AddScoped<IMailService, MailService>();
             services.AddScoped<IImageService, ImageService>();
-            services.Configure<ImageUploadSettings>(config.GetSection("ImageUploadSettings"));
             services.AddScoped<IAuthentication, Authentication>();
             services.AddScoped<ITokenGen, TokenGen>();
-            services.AddAutoMapper(typeof(UserMappings));
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddScoped<ITokenRepository, TokenRepository>();
-            services.AddScoped<IAuthentication, Authentication>();
+            services.AddScoped<IConfirmationMailService, ConfirmationMailService>();
+            
         }
     }
 }

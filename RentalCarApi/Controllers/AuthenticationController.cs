@@ -1,14 +1,18 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RentalCarCore.Dtos;
 using RentalCarCore.Interfaces;
 using Serilog;
 using System;
 using System.Threading.Tasks;
+
+
 namespace RentalCarCore.Controllers
 {
 
-
+    [ApiController]
+    [Route("api/[controller]")]
     public class AuthenticationController : ControllerBase
     {
         private readonly IAuthentication _authentication;
@@ -16,7 +20,9 @@ namespace RentalCarCore.Controllers
         {
             _authentication = authentication;
         }
-        [HttpPost("login")]
+
+        [HttpPost]
+        [Route("login")]
         public async Task<IActionResult> Login([FromBody] UserRequestDto userRequest)
         {
             try
@@ -35,6 +41,7 @@ namespace RentalCarCore.Controllers
 
 
         [HttpPost]
+        [Route("register")]
         public async Task<ActionResult> CreateUserAsync(RegistrationDto userRequest)
         {
             try
@@ -57,7 +64,8 @@ namespace RentalCarCore.Controllers
             }
         }
 
-        [HttpPost]
+        [Authorize]
+        [HttpPatch]
         [Route("Update-password")]
         public async Task<IActionResult> UpdatePassword(UpdatePasswordDTO updatePasswordDto)
         {
@@ -149,7 +157,8 @@ namespace RentalCarCore.Controllers
             }
         }
 
-        [HttpPost("ResetPassword")]
+        [HttpPost]
+        [Route("ResetPassword")]
         public async Task<IActionResult> ResetPassword(ResetPasswordDto resetPassword)
         {
             try
@@ -166,7 +175,8 @@ namespace RentalCarCore.Controllers
             }
         }
 
-        [HttpPost("ForgotPassword")]
+        [HttpPost]
+        [Route("ForgotPassword")]
         public async Task<IActionResult> ForgotPasswordReset(ForgotPasswordDto forgotPasswordDto)
         {
             try

@@ -40,27 +40,39 @@ namespace RentalCarCore.Services
             {
                 if (await _userManager.CheckPasswordAsync(user, userRequestDto.Password))
                 {
-                    var response = _mapper.Map<UserResponseDto>(user);
-                    response.Token = _tokenGen.GenerateToken(user);
-                    user.RefreshToken = _tokenGen.GenerateRefreshToken();
+
+                    string refreshToken = _tokenGen.GenerateRefreshToken();
+                    string token = _tokenGen.GenerateToken(user);
+                    user.RefreshToken = refreshToken;
                     user.ExpiryTime = DateTime.Now.AddDays(3);
+
+                    var result = new UserResponseDto()
+                    {
+                        Id = user.Id,
+                        Token = token,
+                        RefreshToken = refreshToken
+                    };
+
+
+                    await _userManager.UpdateAsync(user);
                     return new Response<UserResponseDto>
                     {
-                        Data = response,
+                        Data = result,
                         Message = MessageResponse.SuccessMessage,
-                        ResponseCode = System.Net.HttpStatusCode.OK,
+                        ResponseCode = HttpStatusCode.OK,
                         IsSuccessful = true
                     };
                 }
                 return new Response<UserResponseDto>
                 {
                     Message = MessageResponse.FailedMessage,
-                    ResponseCode = System.Net.HttpStatusCode.BadRequest,
+                    ResponseCode = HttpStatusCode.BadRequest,
                     IsSuccessful = false,
                 };
             }
             throw new AccessViolationException("Invalid Credentails");
         }
+
         public async Task<UserResponseDto> RegisterAsync(RegistrationDto registrationRequest)
         {
             User user = _mapper.Map<User>(registrationRequest);
@@ -68,16 +80,20 @@ namespace RentalCarCore.Services
             IdentityResult result = await _userManager.CreateAsync(user, registrationRequest.Password);
             if (result.Succeeded)
             {
+                // assign user to the customer role
+                await _userManager.AddToRoleAsync(user, "Customer");
+
                 var emailToken = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                 var response = _mapper.Map<RegistrationDto>(user);
                 var answer = new UserResponseDto
                 {
                     Id = user.Id,
-                    Token = emailToken,
-                    FirstName = user.FirstName,
-                    LastName = user.LastName,
                     Email = user.Email,
+                    Token = emailToken,
+                    FirstName = user.FirstName
+                   
                 };
+                await _confirmationMailService.SendAConfirmationEmail(answer, "ConfirmEmail.html");
                 return answer;
             }
             string errors = result.Errors.Aggregate(string.Empty, (current, error) => current + (error.Description + Environment.NewLine));
@@ -135,6 +151,7 @@ namespace RentalCarCore.Services
             }
             throw new ArgumentException($"User with email '{confirmEmailRequest.Email}' not found");
         }
+
         public async Task<Response<string>> UpdatePasswordAsync(UpdatePasswordDTO updatePasswordDto)
         {
             var user = await _userManager.FindByIdAsync(updatePasswordDto.Id);
@@ -210,9 +227,8 @@ namespace RentalCarCore.Services
                 return response;
             }
             userResponse.FirstName = user.FirstName;
-            userResponse.LastName = user.LastName;
             userResponse.Token = await _userManager.GeneratePasswordResetTokenAsync(user);
-            await _confirmationMailService.SendAConfirmationEmailForResetPassword(userResponse);
+            await _confirmationMailService.SendAConfirmationEmail(userResponse, "ForgotPassword.html");
             response.IsSuccessful = true;
             return response;
         }

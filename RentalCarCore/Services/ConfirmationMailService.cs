@@ -21,26 +21,26 @@ namespace RentalCarCore.Services
             _mailService = mailService;
             _configuration = configuration;
         }
-        public async Task SendAConfirmationEmailForResetPassword(UserResponseDto user)
+        public async Task SendAConfirmationEmail(UserResponseDto user, string templatefile)
         {
-            var template = _mailService.GetEmailTemplate("EmailTemplate.html");
+            var template = _mailService.GetEmailTemplate(templatefile);
             TextInfo textInfo = new CultureInfo("en-GB", false).TextInfo;
             var userName = textInfo.ToTitleCase(user.FirstName);
             var encodedToken = TokenConverter.EncodeToken(user.Token);
-            var link = $"{_configuration["Application:AppDomain"]}/Authentication/ResetPassword?email={user.Email}&token={encodedToken}";
-            string message = "Reset Password";
+            
+            var link = (templatefile == "ForgotPassword.html") ? $"{_configuration["Application:AppDomain"]}/Authentication/ResetPassword?email={user.Email}&token={encodedToken}"
+                : $"{_configuration["Application:AppDomain"]}/Authentication/ConfirmEmail?email={user.Email}&token={encodedToken}";
+           
             template = template.Replace("{User}", $"{userName}");
-            template = template.Replace("{Body}", "Welcome to CarRental Plc,To reset password, click the link below");
-            template = template.Replace("{Link}", link);
-            template = template.Replace("{Details}", $"If you have trouble clicking on the link above you can paste this link on your browser {link}");
-            template = template.Replace("{Action}", $"{message}");
+            template = template.Replace("{link}", link);
+            
             var mailRequest = new MailRequest
             {
                 ToEmail = user.Email,
                 Body = template,
-                Subject = "Reset Password"
+                Subject = (templatefile == "ForgotPassword.html") ? "Reset Password" : "Confirm Password"
             };
-            await _mailService.SendEmailAsync(mailRequest);
+            await _mailService.SendEmailAsync(mailRequest); 
         }
     }
 
