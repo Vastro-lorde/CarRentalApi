@@ -151,6 +151,7 @@ namespace RentalCarCore.Services
             }
             throw new ArgumentException($"User with email '{confirmEmailRequest.Email}' not found");
         }
+
         public async Task<Response<string>> UpdatePasswordAsync(UpdatePasswordDTO updatePasswordDto)
         {
             var user = await _userManager.FindByIdAsync(updatePasswordDto.Id);
