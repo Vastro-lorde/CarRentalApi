@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
-using RentalCarCore.Dtos;
+using RentalCarCore.Dtos.Response;
+using RentalCarCore.Dtos.Request;
 using RentalCarCore.Interfaces;
 using RentalCarCore.Utilities;
 using RentalCarInfrastructure.ModelMail;

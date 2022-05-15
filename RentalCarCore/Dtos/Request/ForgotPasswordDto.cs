@@ -5,18 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RentalCarCore.Dtos
+namespace RentalCarCore.Dtos.Request
 {
-    public class ResetPasswordDto
+    public class ForgotPasswordDto
     {
         [Required]
         [EmailAddress]
         public string Email { get; set; }
-        [Required]
-        public string Token { get; set; }
-        [Required]
-        public string NewPassword { get; set; }
-        [Required]
-        public string ConfirmPassword { get; set; }
     }
 }

@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using RentalCarCore.Dtos;
+using RentalCarCore.Dtos.Response;
+using RentalCarCore.Dtos.Request;
 using RentalCarCore.Interfaces;
 using Serilog;
 using System;
@@ -86,11 +87,6 @@ namespace RentalCarCore.Controllers
                 return BadRequest(ModelState);
 
             }
-            /* catch (Exception ex)
-             {
-                 return new BadRequestObjectResult(ex.Message);
-
-             }*/
             catch (Exception)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError);
@@ -119,6 +115,7 @@ namespace RentalCarCore.Controllers
             }
             catch (ArgumentException ex)
             {
+                Log.Logger.Error(ex.Message);
                 return BadRequest(ex.Message);
             }
             catch (Exception ex)
@@ -148,6 +145,7 @@ namespace RentalCarCore.Controllers
             }
             catch (ArgumentException ex)
             {
+                Log.Logger.Error(ex.Message);
                 return BadRequest(ex.Message);
             }
             catch (Exception ex)

@@ -5,7 +5,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RentalCarCore.Dtos
+namespace RentalCarCore.Dtos.Response
 {
     public class Response<T>
     {

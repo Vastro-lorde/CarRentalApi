@@ -1,4 +1,5 @@
-﻿using RentalCarCore.Dtos;
+﻿using RentalCarCore.Dtos.Response;
+using RentalCarCore.Dtos.Request;
 using System.Threading.Tasks;
 
 namespace RentalCarCore.Interfaces
