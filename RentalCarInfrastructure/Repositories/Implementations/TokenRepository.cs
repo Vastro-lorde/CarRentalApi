@@ -1,4 +1,5 @@
-﻿using RentalCarInfrastructure.Models;
+﻿using RentalCarInfrastructure.Interfaces;
+using RentalCarInfrastructure.Models;
 using RentalCarInfrastructure.Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -10,15 +11,15 @@ namespace RentalCarInfrastructure.Repositories.Implementations
 {
     public class TokenRepository : ITokenRepository
     {
-        private readonly IGenericRepository<User> _genericRepository;
-        public TokenRepository(IGenericRepository<User> genericRepository)
+        private readonly IUnitOfWork _unitOfWork;
+        public TokenRepository( IUnitOfWork unitOfWork)
         {
-            _genericRepository = genericRepository;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<User> GetUserByRefreshToken(string token, string userId)
         {
-            var user = await _genericRepository.GetARecord(userId);
+            var user = await _unitOfWork.UserRepository.GetARecord(userId);
 
             if (user == null)
             {
@@ -28,7 +29,7 @@ namespace RentalCarInfrastructure.Repositories.Implementations
         }
         public async Task<bool> UpdateUser(User user)
         {
-            return await _genericRepository.Update(user);
+            return await _unitOfWork.UserRepository.Update(user);
         }
     }
 }

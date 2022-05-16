@@ -11,6 +11,7 @@ using System;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using RentalCarInfrastructure.Interfaces;
 
 namespace RentalCarCore.Services
 {
@@ -21,15 +22,20 @@ namespace RentalCarCore.Services
         private readonly ITokenGen _tokenGen;
         private readonly ITokenRepository _tokenRepository;
         private readonly IConfirmationMailService _confirmationMailService;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public Authentication(ITokenRepository tokenRepository, ITokenGen tokenGen, UserManager<User> userManager, IMapper mapper, IConfirmationMailService confirmationMailService)
+        public Authentication(ITokenRepository tokenRepository, ITokenGen tokenGen, 
+                            UserManager<User> userManager, IMapper mapper, 
+                            IConfirmationMailService confirmationMailService, IUnitOfWork unitOfWork)
         {
             _mapper = mapper;
             _tokenRepository = tokenRepository;
             _tokenGen = tokenGen;
             _userManager = userManager;
             _confirmationMailService = confirmationMailService;
+            _unitOfWork = unitOfWork;
         }
+
         public async Task<Response<UserResponseDto>> Login(UserRequestDto userRequestDto)
         {
             User user = await _userManager.FindByEmailAsync(userRequestDto.Email);
@@ -41,7 +47,6 @@ namespace RentalCarCore.Services
             {
                 if (await _userManager.CheckPasswordAsync(user, userRequestDto.Password))
                 {
-
                     string refreshToken = _tokenGen.GenerateRefreshToken();
                     string token = _tokenGen.GenerateToken(user);
                     user.RefreshToken = refreshToken;
