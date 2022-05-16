@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Identity;
 using RentalCarCore.Dtos.Response;
 using RentalCarCore.Dtos.Request;
-using RentalCarCore.Dtos.Request;
 using RentalCarCore.Interfaces;
 using RentalCarInfrastructure.Models;
 using RentalCarInfrastructure.Repositories.Interfaces;

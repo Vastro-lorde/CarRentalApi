@@ -50,12 +50,12 @@ namespace RentalCarApi.Controllers
 
         [Authorize]
         [HttpPut]
-        [Route("Update-user-profile")]
-        public async Task<IActionResult> UpdatePassword(UpdateUserDto updateUserdDto)
+        [Route("Id")]
+        public async Task<IActionResult> UpdatePassword(string Id, UpdateUserDto updateUserdDto)
         {
 
 
-            var userId = HttpContext.User.FindFirst(user => user.Type == ClaimTypes.NameIdentifier).Value;
+            //var userId = HttpContext.User.FindFirst(user => user.Type == ClaimTypes.NameIdentifier).Value;
 
             try
             {
@@ -67,7 +67,7 @@ namespace RentalCarApi.Controllers
 
                 if (ModelState.IsValid)
                 {
-                    var result = await _userService.UpdateUserDetails(userId, updateUserdDto);
+                    var result = await _userService.UpdateUserDetails(Id, updateUserdDto);
                     return Ok(result);
                 }
 
