@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RentalCarInfrastructure.Repositories.Implementations
 {
-    public class GenericRepository<T> : Interfaces.IGenericRepository<T> where T : class
+    public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         protected readonly AppDbContext _dbContext;
         private readonly DbSet<T> _dbSet;

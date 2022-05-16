@@ -11,20 +11,7 @@ namespace RentalCarInfrastructure.Interfaces
 {
     public interface IUnitOfWork
     {
-        IGenericRepository<User> UserRepository { get; }
-        IGenericRepository<Car> CarRepository { get; }
-        IGenericRepository<CarDetail> CarDetailRepository { get; }
-        IGenericRepository<Blog> BlogRepository { get; }
-        IGenericRepository<Comment> CommentRepository { get; }
-        IGenericRepository<Dealer> DealerRepository { get; }
-        IGenericRepository<Image> ImageRepository { get; }
-        IGenericRepository<Location> LocationRepository { get; }
-        IGenericRepository<Trip> TripRepository { get; }
-        IGenericRepository<Offer> OfferRepository { get; }
-        IGenericRepository<Rating> RatingRepository { get; }
-        IGenericRepository<Transaction> TransactionRepository { get; }
-        AppDbContext AppDatabaseContext();
-        Task Save();
-        void Dispose();
+        IUserRepository UserRepository { get; }
+        ITripRepository TripRepository { get; }
     }
 }

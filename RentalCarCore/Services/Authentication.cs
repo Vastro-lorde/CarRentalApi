@@ -20,16 +20,14 @@ namespace RentalCarCore.Services
         private readonly UserManager<User> _userManager;
         private readonly IMapper _mapper;
         private readonly ITokenGen _tokenGen;
-        private readonly ITokenRepository _tokenRepository;
         private readonly IConfirmationMailService _confirmationMailService;
         private readonly IUnitOfWork _unitOfWork;
 
-        public Authentication(ITokenRepository tokenRepository, ITokenGen tokenGen, 
+        public Authentication(ITokenGen tokenGen, 
                             UserManager<User> userManager, IMapper mapper, 
                             IConfirmationMailService confirmationMailService, IUnitOfWork unitOfWork)
         {
             _mapper = mapper;
-            _tokenRepository = tokenRepository;
             _tokenGen = tokenGen;
             _userManager = userManager;
             _confirmationMailService = confirmationMailService;
@@ -111,7 +109,7 @@ namespace RentalCarCore.Services
             var refreshToken = token.RefreshToken;
             var userId = token.UserId;
 
-            var user = await _tokenRepository.GetUserByRefreshToken(refreshToken, userId);
+            var user = await _unitOfWork.UserRepository.GetUser(userId);
             if (user.RefreshToken != refreshToken || user.ExpiryTime != DateTime.Now)
             {
                 response.Data = null;
@@ -127,7 +125,7 @@ namespace RentalCarCore.Services
             };
 
             user.RefreshToken = refreshMapping.NewRefreshToken;
-            await _tokenRepository.UpdateUser(user);
+            await _unitOfWork.UserRepository.UpdateUser(user);
             response.Data = refreshMapping;
             response.ResponseCode = HttpStatusCode.OK;
             response.Message = "Token Refresh Successfully";
@@ -148,7 +146,8 @@ namespace RentalCarCore.Services
                     var response = new Response<string>()
                     {
                         Message = "Email Confirmation was successful",
-                        IsSuccessful = true
+                        IsSuccessful = true,
+                        ResponseCode = HttpStatusCode.OK,  
                     };
 
                     return response;

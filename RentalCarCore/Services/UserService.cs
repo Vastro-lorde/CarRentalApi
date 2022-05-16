@@ -8,6 +8,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using RentalCarInfrastructure.Interfaces;
+using RentalCarInfrastructure.Models;
 
 namespace RentalCarCore.Services
 {
@@ -23,18 +24,28 @@ namespace RentalCarCore.Services
 
         public async Task<Response<List<TripsDTO>>> GetTrips(string UserId)
         {
-            var user = await _unitOfWork.UserRepository.GetARecord(UserId);
+            var user = await _unitOfWork.UserRepository.GetUser(UserId);
 
             if (user != null)
             {
-                var trips = _unitOfWork.AppDatabaseContext().Trips.Where(x => x.UserId == user.Id).ToList();
-                var result = _mapper.Map<List<TripsDTO>>(trips);
+                var trips = await _unitOfWork.UserRepository.GetTripsByUserId(UserId);
+                if(trips != null)
+                {
+                    var result = _mapper.Map<List<TripsDTO>>(trips);
+                    return new Response<List<TripsDTO>>()
+                    {
+                        Data = result,
+                        IsSuccessful = true,
+                        Message = "Response Successful",
+                        ResponseCode = HttpStatusCode.OK
+                    };
+                }
                 return new Response<List<TripsDTO>>()
                 {
-                    Data = result,
-                    IsSuccessful = true,
+                    Data = null,
+                    IsSuccessful = false,
                     Message = "Response Successful",
-                    ResponseCode = HttpStatusCode.OK
+                    ResponseCode = HttpStatusCode.BadRequest
                 };
             }
 
