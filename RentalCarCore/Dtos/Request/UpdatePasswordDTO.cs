@@ -1,15 +1,9 @@
-﻿using Microsoft.AspNetCore.Identity;
-using RentalCarInfrastructure.ModelValidationHelper;
-using System;
-using System.Collections.Generic;
+﻿using RentalCarInfrastructure.ModelValidationHelper;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RentalCarCore.Dtos.Request
 {
-    public class UpdatePasswordDTO 
+    public class UpdatePasswordDTO
     {
 
         [Required]

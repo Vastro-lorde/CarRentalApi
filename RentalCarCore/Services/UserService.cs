@@ -1,49 +1,50 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Identity;
 using RentalCarCore.Dtos.Response;
-using RentalCarCore.Dtos.Request;
 using RentalCarCore.Interfaces;
-using RentalCarInfrastructure.Models;
-using RentalCarInfrastructure.Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Text;
 using System.Threading.Tasks;
-using RentalCarInfrastructure.Context;
-using Microsoft.EntityFrameworkCore;
+using RentalCarInfrastructure.Interfaces;
+using RentalCarInfrastructure.Models;
+using RentalCarCore.Dtos.Request;
 
 namespace RentalCarCore.Services
 {
     public class UserService : IUserService
     {
-        private readonly IGenericRepository<User> _genericRepository;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
-        private readonly AppDbContext _appDbContext;
-        private readonly UserManager<User> _userManager;
-        public UserService(IGenericRepository<User> genericRepository, IMapper mapper, AppDbContext appDbContext, UserManager<User> userManager)
+        public UserService(IMapper mapper, IUnitOfWork unitOfWork)
         {
-            _genericRepository = genericRepository;
             _mapper = mapper;
-            _appDbContext = appDbContext;
-            _userManager = userManager;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<Response<List<TripsDTO>>> GetTrips(string UserId)
         {
-            var user = await _genericRepository.GetARecord(UserId);
+            var user = await _unitOfWork.UserRepository.GetUser(UserId);
 
             if (user != null)
             {
-                var trips = _appDbContext.Trips.Where(x => x.UserId == user.Id).ToList();
-                var result = _mapper.Map<List<TripsDTO>>(trips);
+                var trips = await _unitOfWork.UserRepository.GetTripsByUserId(UserId);
+                if (trips != null)
+                {
+                    var result = _mapper.Map<List<TripsDTO>>(trips);
+                    return new Response<List<TripsDTO>>()
+                    {
+                        Data = result,
+                        IsSuccessful = true,
+                        Message = "Response Successful",
+                        ResponseCode = HttpStatusCode.OK
+                    };
+                }
                 return new Response<List<TripsDTO>>()
                 {
-                    Data = result,
-                    IsSuccessful = true,
+                    Data = null,
+                    IsSuccessful = false,
                     Message = "Response Successful",
-                    ResponseCode = HttpStatusCode.OK
+                    ResponseCode = HttpStatusCode.BadRequest
                 };
             }
 
@@ -58,18 +59,21 @@ namespace RentalCarCore.Services
 
         public async Task<Response<string>> UpdateUserDetails(string Id, UpdateUserDto updateUserDto)
         {
-
-            var user = await _userManager.FindByIdAsync(Id);
+            var user = _unitOfWork.UserRepository.GetUser(Id);
 
             if (user != null)
             {
-                user.FirstName = string.IsNullOrWhiteSpace(updateUserDto.FirstName) ? user.FirstName : updateUserDto.FirstName;
-                user.LastName = string.IsNullOrWhiteSpace(updateUserDto.LastName) ? user.LastName : updateUserDto.LastName;
-                user.PhoneNumber = string.IsNullOrWhiteSpace(updateUserDto.PhoneNumber) ? user.PhoneNumber : updateUserDto.PhoneNumber;
-                user.Address = string.IsNullOrWhiteSpace(updateUserDto.Address) ? user.Address : updateUserDto.Address;
 
-                var result = await _userManager.UpdateAsync(user);
-                if (result.Succeeded)
+                var result = await _unitOfWork.UserRepository.UpdateUser(new User()
+                {
+                    FirstName = string.IsNullOrWhiteSpace(updateUserDto.FirstName) ? updateUserDto.FirstName : updateUserDto.FirstName,
+                    LastName = string.IsNullOrWhiteSpace(updateUserDto.LastName) ? updateUserDto.LastName : updateUserDto.LastName,
+                    Address = string.IsNullOrWhiteSpace(updateUserDto.PhoneNumber) ? updateUserDto.PhoneNumber : updateUserDto.PhoneNumber,
+                    PhoneNumber = string.IsNullOrWhiteSpace(updateUserDto.Address) ? updateUserDto.Address : updateUserDto.Address,
+
+                });
+
+                if (result)
                 {
                     return new Response<string>()
                     {
