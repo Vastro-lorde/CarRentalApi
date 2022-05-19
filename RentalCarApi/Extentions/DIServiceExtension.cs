@@ -22,6 +22,7 @@ namespace RentalCarApi.Extentions
             services.AddScoped<IConfirmationMailService, ConfirmationMailService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            
         }
     }
 }
