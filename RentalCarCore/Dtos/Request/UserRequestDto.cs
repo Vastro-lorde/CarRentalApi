@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RentalCarCore.Dtos
+namespace RentalCarCore.Dtos.Request
 {
     public class UserRequestDto
     {

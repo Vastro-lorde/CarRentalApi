@@ -1,10 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using RentalCarInfrastructure.Context;
 using RentalCarInfrastructure.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace RentalCarInfrastructure.Seeder
@@ -17,6 +15,7 @@ namespace RentalCarInfrastructure.Seeder
             Dealer = 2,
             Customer = 3,
         }
+
         public class Seeder
         {
             public async static Task Seed(RoleManager<IdentityRole> roleManager, UserManager<User> userManager, AppDbContext dbContext)
@@ -56,7 +55,7 @@ namespace RentalCarInfrastructure.Seeder
                         if(count == 1)
                         {
                             user.EmailConfirmed = true;
-                            var result = await userManager.CreateAsync(user, "Ja@12");
+                            var result = await userManager.CreateAsync(user, "Ja@125");
                             if (result.Succeeded)
                             {
                                 await userManager.AddToRoleAsync(user, UserRoles.Admin.ToString());
@@ -65,19 +64,20 @@ namespace RentalCarInfrastructure.Seeder
                         else if(count < 6)
                         {
                             user.EmailConfirmed = true;
-                            await userManager.CreateAsync(user, "Ja@12");
+                            await userManager.CreateAsync(user, "Ja@124");
                             await userManager.AddToRoleAsync(user, UserRoles.Dealer.ToString());
                         }
                         else
                         {
                             user.EmailConfirmed = true;
-                            await userManager.CreateAsync(user, "Ja@12");
+                            await userManager.CreateAsync(user, "Ja@123");
                             await userManager.AddToRoleAsync(user, UserRoles.Customer.ToString());
                         }
                         count++;
                     }
                 }
             }
+
             private static async Task SeedDealers(UserManager<User> userManager, AppDbContext dbContext)
             {
                 if (!dbContext.Dealers.Any())

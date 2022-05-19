@@ -193,6 +193,6 @@ UpgradeLog*.htm
 
 RentalCarApi/appsettings.json
 RentalCarApi/appsettings.[Dd]evelopment.json
-RentalCarApi/Logs
+RentalCarApi/Logs.txt
 
 # End of https://www.gitignore.io/api/visualstudio

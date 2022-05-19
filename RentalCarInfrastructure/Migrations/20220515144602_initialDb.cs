@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace RentalCarInfrastructure.Migrations
 {
-    public partial class initial : Migration
+    public partial class initialDb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -29,9 +29,6 @@ namespace RentalCarInfrastructure.Migrations
                     Id = table.Column<string>(type: "text", nullable: false),
                     FirstName = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
                     LastName = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
-                    Password = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
-                    Email = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: false),
-                    PhoneNumber = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
                     Address = table.Column<string>(type: "character varying(250)", maxLength: 250, nullable: true),
                     Gender = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
                     Avatar = table.Column<string>(type: "character varying(250)", maxLength: 250, nullable: true),
@@ -40,11 +37,13 @@ namespace RentalCarInfrastructure.Migrations
                     IsActive = table.Column<bool>(type: "boolean", nullable: false),
                     UserName = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
+                    Email = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
                     NormalizedEmail = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
                     EmailConfirmed = table.Column<bool>(type: "boolean", nullable: false),
                     PasswordHash = table.Column<string>(type: "text", nullable: true),
                     SecurityStamp = table.Column<string>(type: "text", nullable: true),
                     ConcurrencyStamp = table.Column<string>(type: "text", nullable: true),
+                    PhoneNumber = table.Column<string>(type: "text", nullable: true),
                     PhoneNumberConfirmed = table.Column<bool>(type: "boolean", nullable: false),
                     TwoFactorEnabled = table.Column<bool>(type: "boolean", nullable: false),
                     LockoutEnd = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true),
@@ -168,9 +167,9 @@ namespace RentalCarInfrastructure.Migrations
                 {
                     Id = table.Column<string>(type: "text", nullable: false),
                     UserId = table.Column<string>(type: "text", nullable: false),
-                    Title = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
+                    Title = table.Column<string>(type: "character varying(125)", maxLength: 125, nullable: true),
                     Article = table.Column<string>(type: "text", nullable: true),
-                    Thumbnail = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
+                    Thumbnail = table.Column<string>(type: "character varying(250)", maxLength: 250, nullable: true),
                     IsActive = table.Column<bool>(type: "boolean", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     ModifiedAt = table.Column<DateTime>(type: "timestamp without time zone", nullable: false)
@@ -190,7 +189,6 @@ namespace RentalCarInfrastructure.Migrations
                 name: "Dealers",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "text", nullable: false),
                     UserId = table.Column<string>(type: "text", nullable: false),
                     CompanyName = table.Column<string>(type: "character varying(150)", maxLength: 150, nullable: true),
                     Type = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
@@ -198,13 +196,11 @@ namespace RentalCarInfrastructure.Migrations
                     BusinessPhoneNumber = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
                     IsActivated = table.Column<bool>(type: "boolean", nullable: false),
                     IdentityNumber = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
-                    SocialMedia = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true),
-                    CreatedAt = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
-                    ModifiedAt = table.Column<DateTime>(type: "timestamp without time zone", nullable: false)
+                    SocialMedia = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Dealers", x => x.Id);
+                    table.PrimaryKey("PK_Dealers", x => x.UserId);
                     table.ForeignKey(
                         name: "FK_Dealers_AspNetUsers_UserId",
                         column: x => x.UserId,
@@ -239,7 +235,7 @@ namespace RentalCarInfrastructure.Migrations
                         name: "FK_Cars_Dealers_DealerId",
                         column: x => x.DealerId,
                         principalTable: "Dealers",
-                        principalColumn: "Id",
+                        principalColumn: "UserId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -263,7 +259,7 @@ namespace RentalCarInfrastructure.Migrations
                         name: "FK_Locations_Dealers_DealerId",
                         column: x => x.DealerId,
                         principalTable: "Dealers",
-                        principalColumn: "Id",
+                        principalColumn: "UserId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -518,12 +514,6 @@ namespace RentalCarInfrastructure.Migrations
                 name: "IX_Comments_Userid",
                 table: "Comments",
                 column: "Userid");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Dealers_UserId",
-                table: "Dealers",
-                column: "UserId",
-                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Images_CarId",

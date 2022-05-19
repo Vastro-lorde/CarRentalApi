@@ -2,15 +2,16 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace RentalCarInfrastructure.Models
 {
-    public class Dealer : BaseEntity
+    public class Dealer
     {
-        [Required]
+        [Key]
         public string UserId { get; set; }
 
         [StringLength(150, MinimumLength = 3, ErrorMessage = DataAnnotationsHelper.CompanyNameValidator)]

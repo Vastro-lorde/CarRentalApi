@@ -1,6 +1,8 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using RentalCarCore.Dtos;
 using RentalCarCore.Interfaces;
+using RentalCarInfrastructure.Context;
 using RentalCarInfrastructure.Models;
 using System;
 using System.Collections.Generic;
@@ -15,7 +17,6 @@ namespace RentalCarCore.Implementations
     public class TokenGen : ITokenGen
     {
         private readonly IConfiguration _configuration;
-
         public TokenGen(IConfiguration configuration)
         {
             _configuration = configuration;

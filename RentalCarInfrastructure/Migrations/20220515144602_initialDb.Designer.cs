@@ -9,9 +9,9 @@ using RentalCarInfrastructure.Context;
 
 namespace RentalCarInfrastructure.Migrations
 {
-    //[DbContext(typeof(AppDbContext))]
-    //[Migration("20220511184121_initial")]
-    partial class initial
+    [DbContext(typeof(AppDbContext))]
+    [Migration("20220515144602_initialDb")]
+    partial class initialDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -170,12 +170,12 @@ namespace RentalCarInfrastructure.Migrations
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("Thumbnail")
-                        .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
+                        .HasMaxLength(250)
+                        .HasColumnType("character varying(250)");
 
                     b.Property<string>("Title")
-                        .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
+                        .HasMaxLength(125)
+                        .HasColumnType("character varying(125)");
 
                     b.Property<string>("UserId")
                         .IsRequired()
@@ -340,8 +340,7 @@ namespace RentalCarInfrastructure.Migrations
 
             modelBuilder.Entity("RentalCarInfrastructure.Models.Dealer", b =>
                 {
-                    b.Property<string>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<string>("UserId")
                         .HasColumnType("text");
 
                     b.Property<string>("BusinessEmail")
@@ -356,18 +355,12 @@ namespace RentalCarInfrastructure.Migrations
                         .HasMaxLength(150)
                         .HasColumnType("character varying(150)");
 
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp without time zone");
-
                     b.Property<string>("IdentityNumber")
                         .HasMaxLength(50)
                         .HasColumnType("character varying(50)");
 
                     b.Property<bool>("IsActivated")
                         .HasColumnType("boolean");
-
-                    b.Property<DateTime>("ModifiedAt")
-                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("SocialMedia")
                         .HasMaxLength(50)
@@ -377,14 +370,7 @@ namespace RentalCarInfrastructure.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("character varying(50)");
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId")
-                        .IsUnique();
+                    b.HasKey("UserId");
 
                     b.ToTable("Dealers");
                 });
@@ -633,7 +619,6 @@ namespace RentalCarInfrastructure.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasMaxLength(256)
                         .HasColumnType("character varying(256)");
 
@@ -674,18 +659,11 @@ namespace RentalCarInfrastructure.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("character varying(256)");
 
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
-
                     b.Property<string>("PasswordHash")
                         .HasColumnType("text");
 
                     b.Property<string>("PhoneNumber")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("character varying(50)");
+                        .HasColumnType("text");
 
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("boolean");
