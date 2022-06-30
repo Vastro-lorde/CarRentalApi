@@ -65,8 +65,7 @@ namespace RentalCarCore.Controllers
             }
         }
 
-        [Authorize]
-        [HttpPatch]
+        [HttpPatch, Authorize]
         [Route("Update-password")]
         public async Task<IActionResult> UpdatePassword(UpdatePasswordDTO updatePasswordDto)
         {

@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
+using System;
 
 namespace RentalCarApi.Extentions
 {
@@ -9,7 +10,22 @@ namespace RentalCarApi.Extentions
         {
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "RentalCarApi", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "Income Checker",
+                    Description = "An ASP.NET Core Web API for checking a customers income using mono api",
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Omatsolaseund@gmail.com",
+                        Url = new Uri("mailto:omatsolaseund@gmail.com")
+                    },
+                    License = new OpenApiLicense
+                    {
+                        Name = "Seun Daniel Omatsola CC License",
+                        Url = new Uri("https://github.com/Vastro-lorde")
+                    }
+                });
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
                 {
                     Name = "Authorization",
